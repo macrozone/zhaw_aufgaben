@@ -1,0 +1,72 @@
+%% Einleitung
+
+\begin{tabularx}{\textwidth}{Xr}
+  Constantin Lazari, Marco Wettstein & \today\\
+\end{tabularx}
+
+%% Fragen
+\begin{questions}
+  \question
+  Gegeben seien die Alphabete 
+	$
+	\Sigma_1 = \{a, b\}, 
+	\Sigma_2 = \{a, b, c\}, 
+	\Sigma_3 = \{@, \#\},$\\$
+	\Sigma_4 = \{\&\&, ==, !=, ||, +, x, y, z\}
+$ und $\Sigma_5 = \{x, y, z, a, b, c, d\}$ sowie die Zeichenreihen\\ 
+$w_1 = \epsilon$,
+$w_2 = $\enquote{$abababc$}, 
+$w_3 = $\enquote{$@\#\#@b$},
+$w_4 = $\enquote{$x + y == z || z == x$}
+
+	\begin{parts}
+		\part Geben Sie die Länge der Zeichenreihen $w_1$ bis $w_4$
+		\begin{solutionordottedlines}[2cm]
+		$|w_1| = 0, |w_2| = 7, |w_3| = 5, |w_4| = 9$
+		\end{solutionordottedlines}
+
+		\part Entscheiden Sie von $w_1$ bis $w_4$, über welche Alphabeten, $\Sigma_1$ bis $\Sigma_5$, sie
+		Zeichenreihen sind
+		\begin{solutionordottedlines}[2cm]
+		$w_1$ kann aus $\Sigma_1$ bis $\Sigma_5$ sein.
+		$w_2$ kann aus $\Sigma_2$ oder $\Sigma_5$ sein.\\
+		$w_3$ gehört zu keinem der möglichen Alphabete.
+		$w_4$ kann nur aus $\Sigma_4$ sein.
+		\end{solutionordottedlines}
+
+		\part Geben $\Sigma_2 \setminus (\Sigma_3 \cup \Sigma_1)$ an. 
+		Welche der Zeichenreihen sind Zeichenreihen über diesem Alphabet?
+
+		\begin{solutionordottedlines}[2cm]
+		$\Sigma_2 \setminus (\Sigma_3 \cup \Sigma_1) = \{c\}$ -- Keine Zeichenreihe repräsentiert dieses Alphabet.
+		\end{solutionordottedlines}
+	\end{parts}
+
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\question
+	Konstruieren Sie Reguläre Ausdrücke für die folgenden Sprachen über dem Alphabet $\{0, 1, x, y\}$:
+
+	\begin{parts}
+		\part $\{0, 1\} \cup \{x, y\}$
+		\begin{solutionordottedlines}[2cm]
+		$(0+1)* + (x+y)*$
+		\end{solutionordottedlines}
+		
+		\part Menge der Binärzeichenreihen in denen jeder 1 höchstens eine 0 direkt folgt.
+		\begin{solutionordottedlines}[2cm]
+		$0*(101))$
+		\end{solutionordottedlines}
+
+		\part Menge aller Binärzahlen die grösser als 1 sind.
+		\begin{solutionordottedlines}[2cm]
+		$1(0+1)+$
+		\end{solutionordottedlines}
+
+		\part Menge aller durch 3 teilbaren Binärzahlen.
+		\begin{solutionordottedlines}[2cm]
+		$(0*(1(0(1*)0)*1)*)*$
+		\end{solutionordottedlines}
+
+	\end{parts}
+\end{questions}
+

@@ -1,0 +1,78 @@
+%% Einleitung
+
+\begin{tabularx}{\textwidth}{Xr}
+  Constantin Lazari, Marco Wettstein & \today\\
+\end{tabularx}
+
+%% Fragen
+\begin{questions}
+  \question
+  Gegeben seien die Alphabete $\Sigma_1 = \{a, b\}, \Sigma_2 = \{a, b, c\}, \Sigma_3 = \{\@, #\}$
+
+	\begin{parts}
+		\part Geben Sie die Länge der Zeichenreihen $w_1$ bis $w_4$
+		\begin{solutionordottedlines}[2cm]
+		Länge $w_1 = 0$\\
+		Länge $w_2 = 7$\\
+		Länge $w_3 = 5$\\
+		Länge $w_4 = 9$
+		\end{solutionordottedlines}
+
+		\part Entscheiden Sie von $w_1$ bis $w_4$, über welche Alphabeten, $\Sigma_1$ bis $\Sigma_5$, sie
+		Zeichenreihen sind
+		\begin{solutionordottedlines}[2cm]
+		$w_1$ kann aus $\Sigma_1$ bis $\Sigma_5$ sein.\\
+		$w_2$ kann aus $\Sigma_2$ oder $\Sigma_5$ sein.\\
+		$w_3$ gehört zu keinem der möglichen Alphabete.\\
+		$w_4$ kann nur aus $\Sigma_4$ sein.
+		\end{solutionordottedlines}
+
+		\part Geben $\Sigma_2 \setminus (\Sigma_3 \cup \Sigma_1)$ an. Welche der Zeichenreihen sind 
+
+	\end{parts}
+
+  
+ 
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\question
+	Welche Vorteile bietet eine Programmierung in Assembler gegenüber einer in Maschinensprache?
+
+  \begin{solutionordottedlines}[2cm]
+Die Maschinensprache besteht eigentlich nur aus 0 und 1 bzw. und letztendlich aus Spannungsunterschieden. 
+Das ist an sich nicht lesbar.
+
+Assembler hingegen verwendet (sehr) kurze Buchstabenkombinationen, die für bestimmte Anweisungen in Maschinensprache stehen. 
+So gesehen ist Assembler eine Metasprache, die für (geübte) Menschen lesbar ist.
+  \end{solutionordottedlines}
+
+\question
+Was ist der Unterschied zwischen einer Rechenmaschine und einem Computer?
+
+  \begin{solutionordottedlines}[2cm]
+Eine Rechenmaschine arbeitet mechanisch (in der Regel mit Hilfe von Zahnrädern). 
+Ein Computer hingegen arbeitet elektronisch (früher mit Hilfe von Röhren, später Transistoren und jetzt mit integrierten Schaltkreisen).
+  \end{solutionordottedlines}
+
+\titledquestion{Mooresche Gesetz}
+  \thequestiontitle
+  \begin{parts}
+  \part
+  Wo finden Sie das \enquote{Mooresche Gesetz} in der heutigen Zeit?
+  \begin{solutionordottedlines}[2cm]
+Das \enquote{Mooresche Gesetz} äussert sich häufig dadurch, 
+dass sich entweder die Kosten von technischen Geräten mit der Zeit halbiert 
+oder die Geräte leistungsfähiger (=komplexer im Aufbau) werden.
+  \end{solutionordottedlines} 
+
+  \part
+  Geben Sie ein Beispiel an.
+  \begin{solutionordottedlines}[2cm]
+Ein gutes Beispiel sind Flash-Speicher wie USB-Sticks oder SD-Speicher 
+(z.\,B. für digitale Video- oder Fotokameras), welche regelmässig günstiger werden. 
+Gleichzeitig kommen neue Speichergrössen hinzu; dabei ist der Preis für das jeweils grösste Modell relativ konstant -- die Speichergrösse verdoppelt sich jedoch jeweils.
+  \end{solutionordottedlines}
+
+  \end{parts}
+
+\end{questions}
+

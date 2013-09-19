@@ -1,0 +1,153 @@
+%% Einleitung
+
+\begin{tabularx}{\textwidth}{Xr}
+  Constantin Lazari, Marco Wettstein & \today\\
+\end{tabularx}
+
+%% Fragen
+\begin{questions}
+  \question
+	Geben Sie (graphisch) einen DEA mit Alphabet $\Sigma = \{0, 1, 2\}$ an, der genau
+	die Wörter aus $\Sigma^*$ akzeptiert welche geraden natürlichen Zahlen in der Ternärdarstellung (Basis 3 Darstellung) entsprechen.
+
+	Beispiel: Der Automat akzeptiert beispielsweise $1101221$, verwirft aber $1010010$
+
+	\begin{solutionordottedlines}[2cm]
+	$0 \mbox{ lesen: } \cdot 3$\\
+	$1 \mbox{ lesen: } \cdot 3 + 1$\\
+	$2 \mbox{ lesen: } \cdot 3 + 2$\\
+		\begin{center}
+			\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=5cm, semithick]
+			\tikzstyle{every state}=[fill=black!10, align=center, minimum width=3cm]
+			
+			\node[state]	(A)						{$q_0$\\(gerade)};
+			\node[state]	(B) [right of=A]		{$q_1$\\(ungerade)};
+
+			\path 	
+					(A) edge [loop above] 	node {$0$} (A)
+						edge [bend left]	node {$1$} (B)
+						edge [loop below]	node {$2$} (A)
+ 					(B) edge [loop above]	node {$0$} (B)
+ 						edge [bend left]	node {$1$} (A)
+ 						edge [loop below]	node {$2$} (B);
+			\end{tikzpicture}
+		\end{center}
+	\end{solutionordottedlines}
+
+
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\question
+	Es sei $\Sigma$ ein beliebiges Alphabet und $A \subset \Sigma^*$ eine Sprache.
+	Ist folgende Aussage wahr? Begründen Sie Ihre Antwort.
+	
+	\begin{equation}
+		A \mbox{ ist regulär } \Leftrightarrow (\Sigma^*\setminus A) \mbox{ ist regulär}
+	\end{equation}
+
+	\begin{solutionordottedlines}[2cm]
+	$\Sigma^* \setminus A$ ist das Inverse von A (und andersrum).
+
+	1. \enquote{$\Rightarrow$}\\
+	Es lässt sich ein deterministischer, endlicher Automat (DEA a) bauen, der prüft,
+	ob ein gegebenes Wort bzw. ein regulärer Ausdruck von Element von $A$ ist.
+
+	Es lässt sich auch ein Automat (DEA b) bauen, der:
+	\begin{enumerate}
+		\item alle Wörter von $\Sigma^*$ akzeptiert
+		\item alle akzeptierten Wörter DEA a übergibt
+		\item Falls:
+		\begin{enumerate}
+			\item das Wort von DEA a akzeptiert wird, es für ungültig erklärt
+			\item ansonsten das Wort für gültig erklärt.
+		\end{enumerate}
+	\end{enumerate}
+	Somit ist die Implikation nach rechts bewiesen.
+
+	2. \enquote{$\Leftarrow$}
+	Es lässt sich ein deterministischer, endlicher Automat (DEA a) bauen,
+	der prüft, ob ein Wort Element von $\Sigma^*$ ist und falls nicht in den 
+	Zustand \enquote{$w \notin \Sigma^*)$} übergeht.
+
+	Falls, die $\Sigma^*$ Prüfung erfolgreich verläuft, kann im nächsten Schritt
+	geprüft werden, ob das Wort $\in A$ ist. (Falls ja, Zustand \enquote{$w \in A$},
+	sonst Zustand \enquote{$w \notin A$}).
+
+	Somit kann der Automat entscheiden, ob ein Wort ein Element von $\Sigma^* \setminus A$ ist.
+	Damit ist auch die Implikation nach links bewiesen.
+
+	Im Ergebnis ist die Aussage damit richtig.
+	\end{solutionordottedlines}
+		
+
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\question
+	Die Zustandsübergangfunktion $\delta$ vom NEA $A = (\{q_0, q_1, q_2\}, \{0, 1\}, \delta, \{q_0\}, \{q_0\})$
+	ist durch folgende Tabelle gegeben:
+
+	\begin{center}
+		\begin{tabular}{c|c|c}
+			$\delta$ 	& $0$ 			& $1$\\\hline
+			$q_0$ 		& $\{q_0\}$ 	& $\{q_1, q_2\}$\\\hline
+			$q_1$		& $\{q_0\}$		& -- \\\hline
+			$q_2$		& --			& $\{q_0\}$
+		\end{tabular}
+	\end{center}
+
+	\begin{parts}
+		\part Zeichnen Sie das Zustandsübergangsdiagramm von $A$.
+		\begin{solutionordottedlines}[2cm]
+		\begin{center}
+			\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=4cm, semithick]
+			\tikzstyle{every state}=[fill=black!10, align=center]
+
+			\node[state] 	(A)						{$q_0$};
+			\node[state]	(B) [above right of=A]	{$q_1$};
+			\node[state]	(C) [below right of=A]	{$q_2$};
+
+			\path 	
+					(A) edge [loop left] 	node {$0$} (A)
+						edge [bend left]  	node {$1$} (B)
+						edge [bend left]	node {$1$} (C)
+					(B) edge [bend left]	node {$0$} (A)
+					(C)	edge [bend left]	node {$1$} (A);
+			\end{tikzpicture}
+		\end{center}
+		
+		\end{solutionordottedlines}
+		
+		\part Beschreiben Sie die vom Automaten akzeptierte Sprache $L(A)$.
+		\begin{solutionordottedlines}[2cm]
+		$L(A) = (0 + (10) + (11))^*$ (als regulärer Ausdruck)
+		\end{solutionordottedlines}
+
+		\part Konstruieren Sie den zu $A$ äquivalenten DEA $A_D$. Verwenden Sie dazu
+		die Teilmengenkonstruktion (siehe Hopcroft et al. S. 70ff. -- Kopie der S. auf Moodle).
+		\begin{solutionordottedlines}[2cm]
+		Teilmengenkonstruktion:
+		\begin{center}
+			\begin{tabular}{c|c|c|c}
+					& $\delta$ 		& $0$ & 1 \\\hline
+			A		& $\emptyset$ 	& $\emptyset$ & $\emptyset$ \\\hline
+			\end{tabular}
+		\end{center}
+
+		Darstellung:
+		\begin{center}
+			\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=4cm, semithick]
+			\tikzstyle{every state}=[fill=black!10]
+
+			\node[state] 	(A)						{$q_0$};
+			\node[state]	(B) [right of=A]		{$q_1$};
+
+			\path 	
+					(A) edge [loop left] 	node {$0$} (A)
+						edge [bend left]  	node {$1$} (B)
+					(B) edge [bend left]	node {$0, 1$} (A);
+			\end{tikzpicture}
+		\end{center}
+		\end{solutionordottedlines}
+
+
+	\end{parts}
+\end{questions}
+

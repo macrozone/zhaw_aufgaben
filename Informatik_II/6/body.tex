@@ -1,0 +1,182 @@
+%% Einleitung
+
+\begin{tabularx}{\textwidth}{Xr}
+  Constantin Lazari, Marco Wettstein & \today\\
+\end{tabularx}
+
+%% Fragenh
+\begin{questions}
+  \question
+
+	\begin{parts}
+		\part Beschreiben Sie den Unterschied zwischen berechenbaren (= rekursiven = partiell rekursiven = $\mu$-rekursiven = Turing-berechenbaren) Funktionen und primitiv rekursiven Funktionen.
+		\begin{solutionordottedlines}[2cm]
+		  \begin{description}
+		   \item [Turing-berechenbare Funktionen] Funktionen zu deren Lösung ein\\ Lösungsweg (Algorithmus) definiert werden kann.
+		   \item [Primitiv rekursive Funktionen] Sind alle Funktionen, bei denen die Dauer der Berechnung im Voraus ermittelt werden kann.
+		  \end{description}
+		  Primitiv rekursive Funktionen sind somit eine Teilmenge der Turing-\\berechenbaren Funktionen.
+		\end{solutionordottedlines}
+
+		\part Beweisen Sie, dass die Ackermann-Funktion für alle Werte $x, y \in \mathbb{N}$ einen Wert annimmt.
+		\begin{solutionordottedlines}[2cm]
+		
+		Die Ackermann bzw. Péter-Funktion:
+		 \begin{align*}
+		  \textrm{a}(0, m)& = m+1\,\\
+		  \textrm{a}(n+1, 0)& = \textrm{a}(n, 1)\,\\
+		  \textrm{a}(n+1, m+1)& = \textrm{a}(n, \textrm{a}(n+1, m))\,
+		 \end{align*}
+		 Zu zeigen: Die Funktion nimmt für alle $m, n \in \mathbb{N}$ einen Wert an.
+		\begin{proof}
+		Vollständige Induktion:\\
+		Induktionsannahme: Die Funktion ist für a$(m, n)$ ist berechenbar.\\
+		Induktionsanfang für $m = n = 0$
+		\begin{align*}
+		 m = 0: a(0, 0)& = 0 + 1 = 1 \Rightarrow \mbox{Funktion für }m\mbox{ berechenbar}\\
+		 n = 0: a(1, 0)& = a(0, 1) = 1 + 1 = 2 \Rightarrow \mbox{Funktion für }n\mbox{ berechenbar}
+		\end{align*}
+		i. Induktionsschritt: Wir schliessen von $m$ auf $m + 1$:
+		\begin{align*}
+		 \textrm{a}(n , m + 1)& = \textrm{a}(n - 1, \textrm{a}(n, m))\\
+		 & = \textrm{a}(n, \mbox{berechenbar})) \Rightarrow \mbox{a}(n, m + 1) \mbox{ ist berechenbar}
+		\end{align*}
+		ii. Induktionsschritt: Wir schliessen von $n$ auf $n + 1$:
+		\begin{align*}
+		 \textrm{a}(n + 1, m)& = \textrm{a}(n, \textrm{a}(n + 1, m - 1))\\
+		 & = \textrm{a}(n, \textrm{a}(\textrm{a}(n, m - 2))\\
+		 & = \dots
+		\end{align*}
+		a) Falls $n + 2 > m$ lässt sich die Berechnung fortsetzen, bis in der letzten Funktion $\textrm{a}(n - m + 2, 0)$ steht.
+		Dabei handelt es sich dann um einen berechenbaren Term.\\
+		b) Falls $n + 2 < m$ lässt sich die Berechnung fortsetzen, bis in der letzen Funktion $\textrm{a}(0, m - n - 2)$ steht.
+		Auch dieser Term ist berechenbar.\\
+		c) Fall $n + 2 = m$ lässt sich die Berechnung fortsetzen, bis in der letzen Funktion $\textrm{a}(0, 0)$ steht. Auch
+		das ist berechenbar.
+		Somit ist die Funktion für alle $m, n \in \mathbb{N}$ berechenbar.
+		\end{proof}
+
+		\end{solutionordottedlines}
+	\end{parts}
+
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%\pagebreak
+	\question
+	Implementieren Sie (in einer Programmiersprache Ihrer Wahl)
+\textbf{ohne die Verwendung von Iterationen}, eine Funktion/Methode myLoop in 3 Parametern, so dass
+	  \begin{lstlisting}
+	  myLoop (lowerBound, upperBound, body) 
+	  \end{lstlisting}
+
+	  den gleichen Effekt wie folgendes Pseudocode-Fragment verursacht
+	  
+	  \begin{lstlisting}
+for (i=lowerBound ; i <= upperBound; i++){
+  body(i);
+}
+	  \end{lstlisting}
+
+	  \begin{solutionordottedlines}[2cm]
+	  Implementiert in Coffee Script:
+	  \lstinputlisting{myLoop.coffee}
+	  \end{solutionordottedlines}
+
+	  \begin{parts}
+	  \part Test Case 1: Es sei \enquote{doSome(int i)} eine Funktion/Methode mit folgendem Effekt:
+\begin{lstlisting}
+do something with 0
+do something with 1
+do something with 2
+do something with 3
+do something with 4
+do something with 5
+\end{lstlisting}
+	  \begin{solutionordottedlines}[2cm]
+	   Die Konsole gibt für \texttt{doSome(5)} exakt diese Werte aus (siehe Laptop Marco Wettstein).
+	  \end{solutionordottedlines}
+
+	  \part Test Case 2: Es sei \enquote{doMore(int i)} eine Funktion/Methode mit folgendem Effekt:
+		
+\begin{lstlisting}
+doMore (int i) {
+  n -> n + i ;
+}
+\end{lstlisting}
+Rufen Sie die Funktion \texttt{myLoop(0, 5000, doMore)} auf. Die mit 0 initialisierte Variable n sollte nun den Wert n = 12\,502\,500 halten. 
+	  \begin{solutionordottedlines}[2cm]
+	  Stimmt :-)
+	  \end{solutionordottedlines}
+
+	\end{parts}
+
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%\pagebreak
+	\question
+	Gegeben sei eine Codierung für eine TM als Zeichenreihe mit der Nummer:\\
+	$12\,271\,502\,270\,684\,926\,242_{10}$ Die Codierung erfolgt wie in der Vorlesung angegeben (bzw. Hopcroft et al. S. 379 /380)
+
+	\begin{parts}
+	 \part Um welche Zeichenreihen handelt es sich bei $w_{27}$
+und $w_{100}$?
+	\begin{solutionordottedlines}[2cm]
+	\begin{align*}
+	 27_{10} & = 10\,0101_{2} \rightarrow w_{27} = 00\,101\\
+	 100_{10} & = 110\,0100_{2} \rightarrow w_{100} = 10\,0100_{2} 
+	\end{align*}
+	\end{solutionordottedlines}
+
+	\part Um welche Zeichenreihe handelt es sich bei
+$w_{6\,096\,260\,467\,660\,300\,868}$?
+	\begin{solutionordottedlines}[2cm]
+	\begin{multline*}
+	6\,096\,260\,467\,660\,300\,868_{10} = 11\,0100\,1110\,0000\,0110\,1010\,1101\\
+	1111\,0101\,1010\,1011\,0111\,1101\,0101\,0110\,1010\,1000_{2}
+	\end{multline*}
+	\begin{multline*}
+	w_{6\,096\,260\,467\,660\,300\,868} = 1\,0100\,1110\,0000\,0110\,1010\,1101\\
+	1111\,0101\,1010\,1011\,0111\,1101\,0101\,0110\,1010\,1000_{2}
+	\end{multline*}
+	\end{solutionordottedlines}
+	
+	\pagebreak
+	\part Skizieren Sie die \textit{TM} graphisch
+	\begin{solutionordottedlines}[2cm]
+	\begin{align*}
+	 w_{12\,271\,502\,270\,684\,926\,242_{10}} & =(1)01010100100(11)\\
+	 & 01001000100100(11)\\
+	 & 0001001000100100(11)\\
+	 & 0001000100100010\\
+	 x_1& = 0\\
+	 x_2& = 1\\
+	 x_3& = B\\
+	 \delta(q_i, x_i)& = (q_k, x_l, D_m)\\
+	 \delta(q_1, x_1)& = (q_1, x_2, D_2)\\
+	 \delta(q_1, x_2)& = (q_3, x_2, D_2)\\
+	 \delta(q_3, x_2)& = (q_3, x_2, D_2)\\
+	 \delta(q_3, x_3)& = (q_2, x_3, D_1)\\
+	\end{align*}
+	\begin{center}
+		\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto, node distance=3cm, semithick]
+		\tikzstyle{every state}=[fill=black!10, align=center]
+		\tikzstyle{every node}=[align=center]
+
+		\node[state, initial]	(q1) 				{$q_1$};
+		\node[state]		(q3) 	[right of=q1]		{$q_3$};
+		\node[state, accepting]	(q2)	[right of=q3]		{$q_2$};
+
+		\path 	(q1) edge [loop above] 	node {$0/1,R$} (q1)
+			      edge              	node {$1/1,R$} (q3)
+			(q3) edge [loop above]		node {$1/1,R$} (q3)
+			      edge 			node {$B/B,L$} (q2);
+		\end{tikzpicture}
+	\end{center}
+	
+	\end{solutionordottedlines}
+	
+	\end{parts}
+
+	
+
+
+\end{questions}
+

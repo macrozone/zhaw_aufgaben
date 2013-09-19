@@ -1,0 +1,249 @@
+%% Einleitung
+
+\begin{tabularx}{\textwidth}{Xr}
+  Constantin Lazari, Marco Wettstein & \today\\
+\end{tabularx}
+
+%% Fragen
+\begin{questions}
+  \question
+  Entwerfen deterministische PDA's die folgende Sprachen erkennen (akzeptieren durch Endzustand).
+
+	\begin{parts}
+		\part $\{a^nb^{n} | n > 0\}$
+		\begin{solutionordottedlines}[2cm]
+		\begin{equation*}
+			P = (\{q_0, q_1, q_2\}, \{a, b\}, \{a, Z_0\}, \{(q_0, w, Z_0) \vdash^* (q_3, \varepsilon, \varepsilon)\}, q_0, Z_0, q_3) 
+		\end{equation*}
+
+		\begin{center}
+			\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto, node distance=3cm, semithick]
+			\tikzstyle{every state}=[fill=black!10, align=center]
+			\tikzstyle{every node}=[align=center]
+
+			\node[state, initial]		(A) 				{$q_0$};
+			\node[state] 				(B)	[right of=A]	{$q_1$};
+			\node[state]				(C) [right of=B]	{$q_2$};
+			\node[state, accepting]		(D)	[right of=C]	{$q_3$};
+
+			\path 	(A) edge [loop above] 	node {$a, Z_0/aZ_0$\\$a, a/aa$} (A)
+						edge              	node {$b, a/\varepsilon$} (B)
+					(B) edge [loop above]	node {$b, a/\varepsilon$} (B)
+						edge 				node {$b, Z_0/Z_0$} (C)
+					(C) edge 				node {$\varepsilon, Z_0/\varepsilon$} (D);
+			\end{tikzpicture}
+		\end{center}
+		\end{solutionordottedlines}
+
+		\part Die Menge der wohlgeformten Klammerausdrücke (alle aufgehenden Klammern schliessen und es
+		Schliessen nur Klammern, die vorhar aufgegangen sind.
+		\begin{solutionordottedlines}[2cm]
+		\begin{equation*}
+			P = (\{q_0, q_1\}, \{(, )\}, \{(, Z_0\}, \{(q_0, \omega, Z_0) \vdash^* (q_2, \varepsilon, \varepsilon)\} , q_0, Z_0, q_2) 
+		\end{equation*}
+
+		\begin{center}
+			\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto, node distance=4cm, semithick]
+			\tikzstyle{every state}=[fill=black!10, align=center]
+			\tikzstyle{every node}=[align=center]
+
+			\node[state, initial]	(A) 				{$q_0$};
+			\node[state] 			(B)	[right of=A]	{$q_1$};
+			\node[state, accepting](C)	[right of=B]	{$q_2$};
+
+			\path 	(A) edge [loop above] 	node {$(, Z_0/(Z_0$\\$(, (/(($\\$), (/\varepsilon$} (A)
+						edge              	node {$), Z_0/Z_0$} (B)
+					(B) edge				node {$\varepsilon, Z_0/\varepsilon$} (C);
+			\end{tikzpicture}
+		\end{center}
+		\end{solutionordottedlines}
+
+		\part Die Menge aller Wörter $w \in \{0, 1\}^*$ die die gleiche Anzahl Einsen und Nullen enthalten.
+		\begin{solutionordottedlines}[2cm]
+		\begin{equation*}
+			P = (\{q_0, q_1\}, \{0, 1\}, \{0, 1, Z_0\}, \{(q_0, \omega, Z_0) \vdash^* (q_1, \varepsilon, \varepsilon)\}, q_0, Z_0, q_1) 
+		\end{equation*}
+
+		\begin{center}
+			\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto, node distance=4cm, semithick]
+			\tikzstyle{every state}=[fill=black!10, align=center]
+			\tikzstyle{every node}=[align=center]
+
+			\node[state, initial]	(A) 				{$q_0$};
+			\node[state, accepting]	(B)	[right of=A]	{$q_1$};		
+
+			\path 	(A) edge [loop above] 	node {$0, Z_0/1Z_0$\\$1, Z_0/0Z_0$\\$1, 1/\varepsilon$\\$0, 0/\varepsilon$\\$1, 0/11$\\$0, 1/00$} (A)
+						edge              	node {$\varepsilon, Z_0/\varepsilon$} (B);
+			\end{tikzpicture}
+		\end{center}
+		\end{solutionordottedlines}
+	\end{parts}
+
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\pagebreak
+	\question
+	Gesucht sei ein PDA $P_{\mbox{if-else}}$, der eine Eingabefolge bestehend aus \enquote{if} und \enquote{else} 
+	genau dann akzeptiert (durch leeren Stack), wenn sie ein Präfix enthält, das mehr \enquote{else} als \enquote{if} aufweist.
+	Dieses entspricht einer Syntaxverletzung in einer typischen Programmiersprache. 
+	Zur Vereinfachung repräsentiert das Symbol \enquote{i} ein \enquote{if} und das Symbol \enquote{e} ein \enquote{else}.
+
+	\begin{parts}
+		\part Entwerfen Sie den PDA $P_{\mbox{if-else}}$ (Formale Notation und graphische Darstellung angeben)
+		\begin{solutionordottedlines}[2cm]
+		\begin{align*}
+			P_{\mbox{if-else}}& = (\{q_0, q_1\}, \{i, e\}, \{i, Z_0\}, \delta, q_0, Z_0) \\
+			\delta(q_0, i, Z_0)& = \{q_0, iZ_0\}\\
+			\delta(q_0, i, i)& = \{q_0, ii\}\\
+			\delta(q_0, i, e)& = \{q_0, \varepsilon\}\\
+			\delta(q_0, e, Z_0)& = \{q_0, eZ_0\}\\
+			\delta(q_0, e, i)& = \{q_0, \varepsilon\}\\
+			\delta(q_0, e, e)& = \{q_0, ee\}\\
+			\delta(q_0, \varepsilon, e) & = \{q_0, Z_0\}\\
+			\delta(q_0, \varepsilon, \varepsilon) & = \{q_0, Z_0\}
+		\end{align*}
+
+		\begin{center}
+			\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto, node distance=4cm, semithick]
+			\tikzstyle{every state}=[fill=black!10, align=center]
+			\tikzstyle{every node}=[align=center]
+
+			\node[state, initial]	(A) {$q_0$};
+
+			\path 	(A) edge [loop above] 	node {$i, Z_0/iZ_0$\\$e, Z_0/eZ_0$\\$i, i/ii$\\$e, e/ee$\\$e, i/\varepsilon$\\$i, e/\varepsilon$\\$\varepsilon, e/\varepsilon$\\$\varepsilon, \varepsilon/Z_0$} (A);
+			\end{tikzpicture}
+		\end{center}
+		\end{solutionordottedlines}
+		\pagebreak
+		\part Zeigen Sie, dass $P_{\mbox{if-else}}$ die Zeichenfolge $e, ieiee, iee, ieiiee$ und $iieee$ akzeptiert oder
+		nicht akzeptiert.
+
+		\begin{subparts}
+		\subpart $e$
+		\begin{solutionordottedlines}[2cm]
+			$(q_0, e, Z_0)\vdash(q_0, \varepsilon, eZ0) \vdash (q_0, \varepsilon, Z_0) \Rightarrow $ Stack leer $\Rightarrow$ akzeptiert
+		\end{solutionordottedlines}
+			
+		\subpart $ieiee$
+		\begin{solutionordottedlines}[2cm]
+			\begin{align*}
+				(q_0, ieiee, Z_0)& \vdash (q_0, eiee, iZ_0) \vdash (q_0, iee, Z_0) \vdash (q_0, ee, iZ_0) & \vdash (q_0, e, Z_0) \\
+				& \vdash (q_0, \varepsilon, eZ_0) \vdash (q_0, \varepsilon, Z_0)
+			\end{align*}
+			Stack leer, also akzeptiert.
+		\end{solutionordottedlines}
+
+		\subpart $iee$
+		\begin{solutionordottedlines}[2cm]
+		\begin{equation*}
+		(q_0, iee, Z_0) \vdash (q_0, ee, iZ_0) \vdash (q_0, e, Z_0) \vdash (q_0, \varepsilon, eZ_0) \vdash (q_0, \varepsilon, Z_0)
+		\end{equation*}
+		Stack leer, also akzeptiert.
+		\end{solutionordottedlines}
+
+		\subpart $ieiiee$
+		\begin{solutionordottedlines}[2cm]
+		\begin{align*}
+		(q_0, ieiiee, Z_0)& \vdash (q_0, eiiee, iZ_0) \vdash (q_0, iiee, Z_0) \vdash (q_0, iee, iZ_0) \\
+		& \vdash (q_0, ee, iiZ_0) \vdash (q_0, e, iZ_0) \vdash (q_0, \varepsilon, Z_0)
+		\end{align*}
+		Kein Übergang definiert und Stack ist nicht leer, also nicht akzeptiert.
+		\end{solutionordottedlines}
+
+		\subpart $iieee$
+		\begin{solutionordottedlines}[2cm]
+		\begin{align*}
+		(q_0, iieee, Z_0)& \vdash (q_0, ieee, iZ_0) \vdash (q_0, eee, iiZ_0) \vdash (q_0, ee, iZ_0)\\
+		& \vdash (q_0, e, Z_0) \vdash (q_0, \varepsilon, eZ_0) \vdash (q_0, \varepsilon, Z_0)
+		\end{align*}
+		Stack leer, also akzeptiert.
+		\end{solutionordottedlines}
+
+		\end{subparts}
+
+		\pagebreak
+		\part Konstruieren Sie einen PDA $P_{\mbox{if-else-Z}}$, der dieselbe Sprache über einen akzeptierten Zustand erkennt.
+		\begin{solutionordottedlines}[2cm]
+		\begin{align*}
+			P_{\mbox{if-else}}& = (\{q_0, q_1\}, \{i, e\}, \{i, Z_0\}, \delta, q_1, Z_0) \\
+			\delta(q_0, i, Z_0)& = \{q_0, iZ_0\}\\
+			\delta(q_0, i, i)& = \{q_0, ii\}\\
+			\delta(q_0, i, e)& = \{q_0, \varepsilon\}\\
+			\delta(q_0, e, Z_0)& = \{q_0, eZ_0\}\\
+			\delta(q_0, e, i)& = \{q_0, \varepsilon\}\\
+			\delta(q_0, e, e)& = \{q_0, ee\}\\
+			\delta(q_0, \varepsilon, e) & = \{q_1, \varepsilon\}
+		\end{align*}
+
+		\begin{center}
+			\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto, node distance=4cm, semithick]
+			\tikzstyle{every state}=[fill=black!10, align=center]
+			\tikzstyle{every node}=[align=center]
+
+			\node[state, initial]		(A) {$q_0$};
+			\node[state, accepting, right of=A]	(B) {$q_1$};
+
+			\path 	(A) edge [loop above] 	node {$i, Z_0/iZ_0$\\$e, Z_0/eZ_0$\\$i, i/ii$\\$e, e/ee$\\$e, i/\varepsilon$\\$i, e/\varepsilon$} (A)
+						edge 				node {$\varepsilon, e/\varepsilon$} (B);
+			\end{tikzpicture}
+		\end{center}
+		\end{solutionordottedlines}
+
+		\part Zeigen Sie, dass $P_{\mbox{if-else-Z}}$ die Zeichenfolgen $e, iee$ und $ieiiee$ akzeptiert oder nicht akzeptiert.
+		\begin{subparts}
+		\subpart $e$
+		\begin{solutionordottedlines}[2cm]
+			$(q_0, e, Z_0)\vdash(q_0, \varepsilon, eZ_0) \vdash (q_1, \varepsilon, Z_0)$ akzeptierter finaler Zustand
+		\end{solutionordottedlines}
+
+		\subpart $iee$
+		\begin{solutionordottedlines}[2cm]
+		\begin{equation*}
+		(q_0, iee, Z_0) \vdash (q_0, ee, iZ_0) \vdash (q_0, e, Z_0) \vdash (q_0, \varepsilon, eZ_0) \vdash (q_1, \varepsilon, Z_0)
+		\end{equation*}
+		akzeptierter finaler Zustand
+		\end{solutionordottedlines}
+
+		\subpart $ieiiee$
+		\begin{solutionordottedlines}[2cm]
+		\begin{multline*}
+		(q_0, ieiiee, Z_0) \vdash (q_0, eiiee, iZ_0) \vdash (q_0, iiee, Z_0) \vdash (q_0, iee, iZ_0) \\
+		\vdash (q_0, ee, iiZ_0) \vdash (q_0, e, iZ_0) \vdash (q_0, \varepsilon, Z_0) \mbox{ kein Übergang, nicht akzeptiert}
+		\end{multline*}
+		\end{solutionordottedlines}
+			
+		\end{subparts}
+
+
+	\end{parts}
+
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%\pagebreak
+	\question
+	Eine KfG $G$ mit Startsymbol $S$ ist in Chomsky-Normalform, wenn alle ihre Produktionen 
+	von einer der folgenden Gestalt sind:
+	\begin{itemize}
+		\item $A \rightarrow BC$, wobei $B$ und $C$ Variablen von $G$ sind.
+		\item $A \rightarrow a$, wobei $a$ ein Terminalsymbol von $G$ ist.
+		\item $S \rightarrow \epsilon$, wenn diese Produktion vorkommt, wird ferner verlangt, dass die Variable $S$
+		nie auf der rechten Seite einer Produktion vorkommen darf.
+	\end{itemize}
+
+	Geben Sie eine KfG $G$ an, die in Chomsky-Normalform ist und als Sprache genau die Palindrome über $\{x, y\}^*$ hat.
+	\begin{solutionordottedlines}[2cm]
+	\begin{equation*}
+		G = (V, T, P, S) = (\{S, A, B, C, X, Y\}, \{x, y\}, P, S)
+	\end{equation*}
+	mit den Produktionen $P$:
+	\begin{align*}
+		S & \rightarrow \epsilon | BX | CY\\
+		A & \rightarrow BX | CY | x | y\\
+		B & \rightarrow XB | x\\
+		C & \rightarrow YA | y\\
+		X & \rightarrow x\\
+		Y & \rightarrow y
+	\end{align*}
+	\end{solutionordottedlines}
+
+
+\end{questions}
+
