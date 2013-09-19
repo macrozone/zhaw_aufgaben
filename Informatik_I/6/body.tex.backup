@@ -1,0 +1,229 @@
+%% Einleitung
+
+\begin{tabularx}{\textwidth}{Xr}
+  Constantin Lazari, Marco Wettstein & \today\\
+\end{tabularx}
+
+%% Fragen
+\begin{questions}
+	\question
+	Gegeben ist die folgende Ereignis-Tabelle:
+	\begin{table}[ht!]
+		\centering
+		\begin{tabular}{cccc}
+			\toprule
+			\textbf{~Alter Zustand~} & \textbf{~Eingabe~} & \textbf{~Neuer Zustand~} & \textbf{~Ausgabe~}\\
+			\midrule
+			$z_a$	& $e_0$		& $z_a$ 	& $a_2$\\
+			$z_a$ 	& $e_1$ 	& $z_b$ 	& $a_0$ \\
+			$z_b$ 	& $e_3$ 	& $z_c$ 	& $a_0$ \\
+			$z_b$ 	& $e_2$ 	& $z_e$ 	& $a_1$ \\
+			$z_b$ 	& $e_1$ 	& $z_e$ 	& $a_2$ \\
+			$z_c$ 	& $e_0$ 	& $z_f$ 	& $a_1$ \\
+			$z_c$ 	& $e_1$ 	& $z_d$ 	& $a_1$ \\
+			$z_e$ 	& $e_0$ 	& $z_d$ 	& $a_1$ \\
+			$z_e$ 	& $e_1$ 	& $z_d$ 	& $a_1$ \\
+			$z_f$ 	& $e_1$ 	& $z_b$ 	& $a_1$ \\
+			$z_f$ 	& $e_2$ 	& $z_d$ 	& $-$ \\
+			\bottomrule
+		\end{tabular}
+	\end{table}
+
+
+	\begin{parts}
+		\part Konstruieren (zeichnen) Sie den entsprechenden Mealy-Automaten
+		\begin{solutionordottedlines}[2cm]
+			\begin{center}
+			\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=4cm, semithick]
+			\tikzstyle{every state}=[fill=black!10]
+
+			\node[state] 	(A)						{$z_a$};
+			\node[state]	(B) [right of=A]		{$z_b$};
+			\node[state]	(C) [above right of=B]	{$z_c$};
+			\node[state]	(D) [right of=C]		{$z_d$};
+			\node[state]	(E) [below of=D]		{$z_e$};
+			\node[state]	(F) [above left of=C]		{$z_f$};
+
+			\path 	(A) edge [loop above] 	node {$e_0/a_2$} (A)
+						edge              	node {$e_1/a_0$} (B)
+					(B) edge  				node {$e_3/a_0$} (C)
+						edge [bend left]   	node {$e_2/a_1$} (E)
+						edge [bend right]	node {$e_1/a_2$} (E)
+					(C) edge              	node {$e_0/a_1$} (F)
+						edge 				node {$e_1/a_1$} (D)
+					(E) edge [bend left]  	node {$e_0/a_1$} (D)
+						edge [bend right]  	node {$e_1/a_1$} (D)
+					(F) edge [bend right]	node {$e_1/a_1$} (B)
+						edge [bend left]	node {$e_2/-$} (D);
+			\end{tikzpicture}
+		\end{center}
+		\end{solutionordottedlines}
+		
+		\pagebreak
+		\bonuspart (Optionale Teilaufgabe) Wenn Sie  anstelle eines Mealy-Automaten 
+einen Moore-Automaten konstruieren, welches sind die kritischen Zustände und wie können 
+Sie diese einfach bei der Konstruktion berücksichtigen?
+
+		\begin{solutionordottedlines}[2cm]
+		Kritisch sind möglicherweise die Zustände, die aufgrund mehr als einer Ausgabe zustande kommen.
+		Dies sind $z_b, z_d$ und $z_e$. Um Sie bei der Konstruktion einfach zu berücksichtigen,
+		müssen entsprechende neue Zustände hinzukommen.
+		\end{solutionordottedlines}
+
+		\bonuspart (Optionale Teilaufgabe) Konstruieren (zeichnen) Sie den entsprechenden MooreAutomaten
+		\begin{solutionordottedlines}[2cm]
+		Zur einfachen Konstruktion wird die Automatentafel herangezogen:\\
+
+		\begin{center}
+			\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto, node distance=4cm, semithick]
+			\tikzstyle{every state}=[fill=black!10, align=center]
+
+			\node[state] 	(A)						{$z_a$\\$a_2$};
+			\node[state]	(F) [above left of=C]	{$z_f$\\$a_1$};
+			\node[state]	(G) [left of=F]			{$z_g$\\$a_1$};%
+			\node[state]	(I)	[below of=G]		{$z_i$\\$a_2$};%
+			\node[state]	(H) [right of=F]		{$z_h$\\$-$};%
+			\node[state]	(D) [left of=I]			{$z_d$\\$a_1$};
+			\node[state]	(C) [right of=D]		{$z_c$\\$a_0$};
+			\node[state]	(E) [below of=I]		{$z_e$\\$a_1$};
+			\node[state]	(B) [right of=C]		{$z_b$\\$a_0$};
+
+			\path 	(A) edge [loop below] 	node {$e_0$} (A)
+						edge              	node {$e_1$} (B)
+					(B) edge  				node {$e_3$} (C)
+						edge [bend left]   	node {$e_2$} (E)
+						edge [bend right]	node {$e_1$} (I)
+					(C) edge              	node {$e_0$} (F)
+						edge 				node {$e_1$} (D)
+					(E) edge [bend left]  	node {$e_0$} (D)
+						edge [bend right]  	node {$e_1$} (D)
+					(F) edge [bend right]	node {$e_1$} (G)
+						edge 				node {$e_2$} 	 (H)
+					(G) edge 				node {$e_3$} (C)
+						edge [bend right]	node {$e_2$} (E)
+						edge				node {$e_1$} (I)
+					(I) edge [bend left]	node {$e_0$} (D)
+						edge [bend right]	node {$e_1$} (D);
+			\end{tikzpicture}
+		\end{center}
+		\end{solutionordottedlines}
+		
+	\end{parts}
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\pagebreak
+	\question Gegeben ist ein ungerichteter Graph $G = \{V, E\}$ mit den Knoten 
+	$V = \{X, Y, Z, U, V, W\}$ und den Kanten $E = \{a, b, c, d, e\}, a = (U,Y),
+b = (Y,V), c = (U,Z)$ und $e = (U,V)$
+
+	\begin{parts}
+		\part Zeichnen Sie den Graphen $G$
+		\begin{solutionordottedlines}[2cm]
+			Anmerkung: In der Aufgabenstellung ist eine Kante $d$ genannt, aber nicht definiert.\\\\
+			\begin{center}
+			\begin{tikzpicture}[-, auto,node distance=4cm, semithick]
+			\tikzstyle{every state}=[fill=black!10]
+
+			\node[state]	(Z) 					{Z};
+			\node[state]	(Y) [right of=Z]		{Y};
+			\node[state] 	(X)	[right of=Y]		{X};
+			\node[state]	(U) [below of=Z]		{U};
+			\node[state]	(V) [below of=Y]		{V};
+			\node[state]	(W) [below of=X]		{W};
+
+			\path 	(U) edge node {$a$} (Y)
+						edge node {$c$} (Z)
+						edge node {$e$} (V)
+					(Y)	edge node {$b$} (V);
+			\end{tikzpicture}
+			\end{center}
+		\end{solutionordottedlines}
+
+		\part Ist $G$ vollständig? (Antwort bitte kurz begründen)
+		\begin{solutionordottedlines}[2cm]
+		Nein, denn Vollständigkeit bei Graphen verlangt, dass von jedem Knoten zu jedem anderen Knoten
+		eine Kante existieren muss. Das ist hier nicht gegeben. Dazu wären $\frac{6 \cdot 5}{2} = 15$ Kanten erforderlich.
+		\end{solutionordottedlines}
+
+		\part Ist $G$ zusammenhängend? (Antwort bitte kurz begründen)
+		\begin{solutionordottedlines}[2cm]
+		Nein, denn zusammenhängend verlangt, dass jeder Knoten von jedem Knoten erreicht werden kann.
+		Das ist hier nicht gegeben. Er wäre auch mit einer zusätzlichen Kante nicht zusammenhängend.
+		\end{solutionordottedlines}
+
+		\part Gibt es in $G$ eine Schleife?
+		\begin{solutionordottedlines}[2cm]
+		Ja, man gelangt von U via $a$ nach Y, von dort via $b$ zu V und von dort via $e$ zurück nach U.
+		\end{solutionordottedlines}
+
+	\end{parts}
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\pagebreak
+	\question Gegeben ist ein gerichteter Graph $G' = \{V, E\}$ mit den Knoten 
+	$V = \{A, B, C, D, E, F,$\\$ G, H, I, J, K, L, M\}$ und den gerichteten Kanten 
+	$(D,B), (B,C), (C,A), (C,E), (B,G),$\\$ (G,F)$ und $(F,I)$
+
+	\begin{parts}
+		\part Zeichnen Sie den Graphen $G'$ als Baum
+		\begin{solutionordottedlines}[2cm]
+		\begin{center}
+			\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm, semithick]
+			\tikzstyle{every state}=[fill=black!10]
+
+			\node[state]	(D) 						{D};
+			\node[state]	(B) 	[below of=D]		{B};
+			\node[state]	(C)		[below left of=B]	{C};
+			\node[state] 	(A)		[below left of=C]	{A};
+			\node[state]	(E) 	[below right of=C]	{E};
+
+			\node[state]	(G) 	[below right of=B]	{G};
+			\node[state]	(F) 	[below of=G]		{F};
+			\node[state]	(I) 	[below of=F]		{I};
+
+			\node[state]	(H)		[right of=D]	{H};
+			\node[state]	(J) 	[right of=H]	{J};
+			\node[state]	(K) 	[right of=J]	{K};
+			\node[state]	(L) 	[right of=K]	{L};
+			\node[state]	(M) 	[right of=L]	{M};
+
+			\path 	(D) edge (B)
+					(B) edge (C)
+					(B) edge (G)
+					(C) edge (A)
+					(C) edge (E)
+					(G) edge (F)
+					(F) edge (I);
+			\end{tikzpicture}
+		\end{center}
+		\end{solutionordottedlines}
+
+		\part Welcher Knoten ist die Wurzel, welche Knoten sind die Blätter in $G'$?
+		\begin{solutionordottedlines}[2cm]
+		Die Wurzel ist D. Die Blätter sind A, E und I.
+		\end{solutionordottedlines}
+		
+		\part Ist $G'$ zusammenhängend? (Antwort bitte kurz begründen)
+		\begin{solutionordottedlines}[2cm]
+		Nein, denn H, J, K, L, M sind in keiner Weise mit den anderen Knoten verbunden.
+		\end{solutionordottedlines}
+
+		\part Welche Höhe hat $G'$?
+		\begin{solutionordottedlines}[2cm]
+		Höhe 4, wenn man die Kanten zählt, Höhe 5, wenn man die Knoten zählt.
+		\end{solutionordottedlines}
+
+		\part Warum ist $G'$ kein ausgewogener Baum?
+		\begin{solutionordottedlines}[2cm]
+		Nein, dazu müsste G mit I verbunden sein.
+		\end{solutionordottedlines}
+	\end{parts}
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{questions}
+

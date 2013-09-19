@@ -1,0 +1,98 @@
+%% Einleitung
+
+\begin{tabularx}{\textwidth}{Xr}
+  Constantin Lazari, Marco Wettstein & 27. September 2012\\
+\end{tabularx}
+
+%% Fragen
+\begin{questions}
+  \question
+  Berechnen Sie mit dem Algorithmus von Euklid den grössten gemeinsamen Teiler von 8\,234\,592 und 213\,480.
+  
+  \begin{solutionordottedlines}[2cm]
+	\texttt{mod} bezeichne die Modulo- oder Ganzzahl-Division, deren Ergebnis der Rest der gewöhnlichen Division ist. \texttt{min} bezeichnet das Minimum, \texttt{max} das Maximum einer Reihe von Werten.\\
+\\
+\begin{tabular}{ll}
+	Ausgangslage	& $ a_0 = 8\,234\,592; b_0 = 213\,480$\\ 
+	Berechnung 1 	& $ r_0 = a_0 \mod b_0 = 8\,234\,592 \mod 213\,480 = 122\,352$\\
+	Zuweisung 1 	& $ a_1 = \mbox{max}(b_0, r_0) = 213\,480; b_1 = \mbox{min}(b_0, r_0) = 122\,352$\\
+	Berechnung 2 	& $ r_1 = a_1 \mod b_1 = 213\,480 \mod 122\,352 = 91\,128$\\
+	Zuweisung 2 	& $ a_2 = \mbox{max}(b_1, r_1) = 122\,352; b_2 = \mbox{min}(b_1, r_1) = 91\,128$\\
+	Berechnung 3 	& $ r_2 = a_2 \mod b_2 = 122\,352 \mod 91\,128 = 31\,224$ \\
+	Zuweisung 3		& $ a_3 = \mbox{max}(b_2, r_2) = 91\,128; b_3 = \mbox{min}(b_2, r_2) = 31\,224$\\
+	Berechnung 4	& $ r_3 = a_3 \mod b_3 = 91\,128 \mod 31\,224 = 28\,680$ \\
+	Zuweisung 4		& $ a_4 = \mbox{max}(b_3, r_3) = 31\,224; b_4 = \mbox{min}(b_3, r_3) = 28\,680$\\
+	Berechnung 5	& $ r_4 = a_4 \mod b_4 = = 31\,224 \mod 28\,680 = 2\,544$ \\
+	Zuweisung 5		& $ a_5 = \mbox{max}(b_4, r_4) = 28\,680; b_5 = \mbox{min}(b_4, r_4) = 2\,544$\\
+	Berechnung 6	& $ r_5 = a_5 \mod b_5 = 28\,680 \mod 2\,544 = 696$ \\
+	Zuweisung 6		& $ a_6 = \mbox{max}(b_5, r_5) = 2\,544; b_6 = \mbox{min}(b_5, r_5) = 696$\\
+	Berechnung 7	& $ r_6 = a_6 \mod b_6 = 2\,544 \mod 696 = 456$\\
+	Zuweisung 7		& $ a_7 = \mbox{max}(b_6, r_6) = 696; b_7 = \mbox{min}(b_6, r_6) = 456$\\
+	Berechnung 8	& $ r_7 = a_7 \mod b_7 = 696 \mod 456= 240$\\
+	Zuweisung 8		& $ a_8 = \mbox{max}(b_7, r_7) = 456; b_8 = \mbox{min}(b_7, r_7) = 240$\\
+	Berechnung 9	& $ r_8 = a_8 \mod b_8 = =456 \mod 240 = 216$\\
+	Zuweisung 9		& $ a_9 = \mbox{max}(b_8, r_8) = 240; b_9 = \mbox{min}(b_8, r_8) = 216$\\
+	Berechnung 10	& $ r_9 = a_9 \mod b_9 = 240 \mod 216 = 24$\\
+	Zuweisung 10 	& $ a_{10} = \mbox{max}(b_9, r_9) = 216; b_{10} = \mbox{min}(b_9, r_9) = 24$\\
+	Berechnung 11	& $ r_{10} = a_{10} \mod b_{10} = 216 \mod 24 = 0$\\	
+\end{tabular}
+\\
+Das Ergebnis von Berechnung 11: $r_{10} = a_{10} \mod b_{10} = 0$ heisst, dass $b_{10} = 24$ der grösste gemeinsame Teiler ist.
+  \end{solutionordottedlines}
+ 
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\question
+	Ein Bild mit einer Auflösung von 10.2 MBit kann mittels verlustfreier Kompression in 6.3 MBit dargestellt werden. Wie gross ist die Redundanz im Ausgangsformat mindestens?
+
+  \begin{solutionordottedlines}[2cm]
+	Es gilt: $\mbox{Redundanz} := \frac{\mbox{Bit}_{\mbox{Gesamt}}}{\mbox{Bit}_{\mbox{Nutz}}} - 1$\\
+	Also: $\mbox{Redundanz} = \frac{10.2}{6.3} - 1 = 0.62$\\
+  \end{solutionordottedlines}
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question
+Sie haben sich eine Festplatte gekauft. Diese hat laut Hersteller eine Grösse von 160 GB. Im Windows Explorer sehen Sie, 
+dass die Festplatte jedoch nur eine Grösse von 149 GB hat. 
+Hat der Hersteller grosszügig aufgerundet oder gibt es eine natürliche Erklärung?
+
+  \begin{solutionordottedlines}[2cm]
+	Ja, es gibt eine natürliche Erklärung. Der Internet Explorer zeigt das Ergebnis bzw. die Einheit falsch an:\\
+	$160\,\mbox{GB} = 160 \cdot 10^{9}\,\mbox{B} = 149 \cdot 2^{30}\,\mbox{B} = 149\,\mbox{GiB}$\\
+	Der Windows Explorer zeigt also GiB an, behauptet aber es seien GB, was offensichtlich falsch ist. 
+	Fairerweise muss man sagen, dass zur Zeit der Veröffentlichung des ersten Windows Explorers (1995) die Binärpräfixe noch nicht existierten.
+  \end{solutionordottedlines}
+
+\titledquestion{Es sei das folgende Alphabet gegeben: $Z = \{*,+,\#,?,\sim,\$\}$ mit:\\
+$p(*) = 0.6; p(+) = 0.1; p(\#) = 0.2; p(?) = 0.04; p(\sim) = 0.04; p(\$) = 0.02$}
+  \thequestiontitle
+
+  \begin{parts}
+  \part
+  Wie gross ist der Informationsgehalt der einzelnen Zeichen?
+
+  \begin{solutionordottedlines}[2cm]
+	Es seien $I(x)$ der Informationsgehalt des Zeichens $x$ und $p(x)$ die Häufigkeit des Zeichens $x$.\\
+	$I(*) = - \log_{2} p(*) =  - \log_{2} 0.6 \approx 0.737$\\ 
+	$I(+) = - \log_{2} p(+) =  - \log_{2} 0.1 \approx 3.322$\\ 
+	$I(\#) = - \log_{2} p(\#) =  - \log_{2} 0.2 \approx 2.322$\\ 
+	$I(?) = - \log_{2} p(?) =  - \log_{2} 0.04 \approx 4.644$\\ 
+	$I(\sim) = - \log_{2} p(\sim) = - \log_{2} 0.04 \approx 4.644$\\
+	$I(\$) = - \log_{2} p(\$) = - \log_{2} 0.02 \approx 5.644$
+  \end{solutionordottedlines} 
+
+  \part
+  Wie gross ist die Entropie für das gegebene Alphabet?
+  \begin{solutionordottedlines}[2cm]
+	Es seien $I(x)$ der Informationsgehalt des Zeichens $x$, $p(x)$ die Häufigkeit des Zeichens $x$ und $H_Z$ die Entropie des Alphabets $Z$.\\
+	Nach Claude Shannon gilt allgemein: $H = \sum_{i=1}^{n}{p_{i} \cdot I_{i}}$\\
+	Setzt man die Werte von $p_i$ und $I_i$ aus der Aufgabenstellung und der vorherigen Teilaufgabe ein, so erhält man:
+	\begin{multline*}
+		H_Z = (0.6 \cdot 0.737) + (0.1 \cdot 3.322) + (0.2 \cdot 2.322) + (0.04 \cdot 4.644)\\ 
+		 + (0.04 \cdot 4.644) + (0.02 \cdot 5.644) \approx 1.723
+	\end{multline*}
+  \end{solutionordottedlines}
+
+  \end{parts}
+
+\end{questions}
+

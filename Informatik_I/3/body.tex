@@ -1,0 +1,241 @@
+%% Einleitung
+
+\begin{tabularx}{\textwidth}{Xr}
+  Constantin Lazari, Marco Wettstein & 1. Oktober 2012\\
+\end{tabularx}
+
+%% Fragen
+\begin{questions}
+  \titledquestion{Bringen Sie $2\,023.5_{10}$ in folgende Zahlensysteme:}
+  \thequestiontitle
+  \begin{parts}
+      \part Hexadezimalsystem
+      \begin{solutionordottedlines}[2cm]
+	1. Ganzzahlanteil berechnen:
+	\begin{align*}
+	  2\,023 \div 16& = 126~\mathrm{R}~7\\
+	  126 \div 16& = 7~\mathrm{R}~14\,(=\mathrm{E}_{16})\\
+	  7 \div 16& = 0~\mathrm{R}~7
+	\end{align*}
+	2. Nachkomma-Anteil berechnen: $0.5 \cdot 16 = 8 \rightarrow 2\,023.5_{10} = 7\mathrm{E}7.8_{16}$
+      \end{solutionordottedlines}
+      
+      \part Oktalsystem
+      \begin{solutionordottedlines}[2cm]
+	1. Ganzzahlanteil berechnen:
+	\begin{align*}
+	  2\,023 \div 8& = 252~\mathrm{R}~7\\
+	  252 \div 8& = 31~\mathrm{R}~4\\\
+	  31 \div 8& = 3~\mathrm{R}~7\\
+	  3 \div 8& = 0~\mathrm{R}~3
+	\end{align*}
+	2. Nachkomma-Anteil berechnen: $0.5 \cdot 8 = 4 \rightarrow 2\,023.5_{10} = 3747.4_{8}$
+      \end{solutionordottedlines}
+      
+      \part Binärsystem
+      \begin{solutionordottedlines}[2cm]
+	1. Ganzzahlanteil berechnen:
+	\begin{align*}
+	  2\,023 \div 2& = 1\,011~\mathrm{R}~1\\
+	  1\,011 \div 2& = 505~\mathrm{R}~1\\\
+	  505 \div 2& = 252~\mathrm{R}~1\\
+	  252 \div 2& = 126~\mathrm{R}~0\\
+	  126 \div 2& = 63~\mathrm{R}~0\\
+	  63 \div 2& = 31~\mathrm{R}~1\\
+	  31 \div 2& = 15~\mathrm{R}~1\\
+	  15 \div 2& = 7~\mathrm{R}~1\\
+	  7 \div 2& = 3~\mathrm{R}~1\\
+	  3 \div 2& = 1~\mathrm{R}~1\\
+	  1 \div 2& = 0~\mathrm{R}~1
+	\end{align*}
+	2. Nachkomma-Anteil berechnen: $0.5 \cdot 2 = 1 \rightarrow 2\,023.5_{10} = 111\,1110\,0111.1_{2}$
+      \end{solutionordottedlines}
+  \end{parts}
+
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+  \question
+  Konvertieren Sie $186\,225\mathrm{A}_{12}$ in das Dezimalsystem.
+  \begin{solutionordottedlines}[2cm]
+      Hornerschema (mit $\mathrm{A}_{12} = 10_{10}$):
+      \begin{multline*}
+      %n = (…(((bNB + bn‐1).B + bn‐2).B + bn‐3).B + … + b1).B + b0
+	  186\,225\mathrm{A}_{12} = ((((((1 \cdot 12 + 8) \cdot 12 + 6) \cdot 12 + 2) \cdot 12 + 2) \cdot 12 + 5) \cdot 12 + 10)\\
+	  = 5\,104\,870
+      \end{multline*}
+  \end{solutionordottedlines}
+ 
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \titledquestion{Konvertieren Sie folgende Dezimalzahlen in das gewünschte Zahlensystem.}
+  \thequestiontitle
+  \begin{parts}
+      \part $3\,463\,443_{10} \rightarrow 6$er
+      \begin{solutionordottedlines}[2cm]
+ 	\begin{align*}
+	  3\,463\,443 \div 6& = 577\,240~\mathrm{R} ~3\\
+	  577\,240 \div 6& = 96\,206~\mathrm{R} ~4\\
+	  96\,206 \div 6& = 16\,034~\mathrm{R} ~2\\
+	  16\,034 \div 6& = 2\,267~\mathrm{R} ~2\\
+	  2\,267 \div 6& = 445~\mathrm{R} ~2\\
+	  445 \div 6& = 74~\mathrm{R} ~1\\
+	  74 \div 6& = 12~\mathrm{R} ~2\\
+	  12 \div 6& = 2~\mathrm{R} ~0\\
+	  2 \div 6& = 0~\mathrm{R} ~2
+	\end{align*}
+	Zusammengesetzt: $3\,463\,443_{10} = 202\,122\,243_6$
+      \end{solutionordottedlines}
+      
+      \part $4{,}9_{10} \rightarrow 5$er
+      \begin{solutionordottedlines}[2cm]
+	Ganzzahlanteil: $4_{10} = 4_{5}$\\
+	Nachkomma-Anteil:
+	\begin{align*}
+	  0{,}9 \cdot 5& = 4{,}5\\
+	  0{,}5 \cdot 5& = 2{,}5\\
+	  0{,}5 \cdot 5& = 2{,}5\\
+	  \dots
+	\end{align*}
+	Zusammengesetzt: $4.9_{10} = 4.42\overline{2}_{2}$
+      \end{solutionordottedlines}
+  \end{parts}
+  
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \pagebreak
+  \titledquestion{Berechnen Sie folgende Terme mit der Einer-Komplementdarstellung 
+  (mit einer Wortlänge von 16 Bit).}
+  \thequestiontitle
+  \begin{parts}
+      \part $118_{10} - 15_{10} =$
+      \begin{solutionordottedlines}[2cm]
+      Umrechnung mit Taschenrechner
+	\begin{align*}
+	 118_{10} - 15_{10}& = 118_{10} + -15_{10}\\
+	 118_{10}& = 0000\,0000\,0111\,0110_2\\
+	 15_{10}& = 0000\,0000\,0000\,1111_2\\
+	 -15_{10}& = 1111\,1111\,1111\,0000_2\\
+	0000\,0000\,0111\,0110_2 + 1111\,1111\,1111\,0000_2& = 0000\,0000\,0110\,0111_2~\mbox{mit Überlauf}\\
+	0000\,0000\,0110\,0111_2& = 103_{10}
+	\end{align*}
+     \end{solutionordottedlines}
+      \part $150_{10} + 30_{10} =$
+      \begin{solutionordottedlines}[2cm]
+      Umrechnung mit Taschenrechner
+	\begin{align*}
+	 150_{10}& = 0000\,0000\,1001\,0110_2\\
+	 30_{10}& = 0000\,0000\,0001\,1110_2\\
+	 0000\,0000\,0001\,1110_2 + 0000\,0000\,0001\,1110_2& = 0000\,0000\,1011\,0100_2\\
+	 0000\,0000\,1011\,0100_2& = 180_{10}
+	\end{align*}
+      \end{solutionordottedlines}
+  \end{parts}
+
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \titledquestion{Berechnen Sie folgende Terme mit der Zweier-Komplementdarstellung 
+  (mit einer Wortlänge von 8 Bit).}
+  \thequestiontitle
+  \begin{parts}
+      \part $8_{10} + 15_{10} = $
+      \begin{solutionordottedlines}[2cm]
+      Umrechnung mit Taschenrechner
+      \begin{align*}
+	 8_{10}& = 0000\,1000_2\\
+	 15_{10}& = 0000\,1111\\
+	 0000\,1000_2 + 0000\,1111_2& = 0001\,0111_2\\
+	 0001\,0111_2& = 23_{10}
+      \end{align*}
+      \end{solutionordottedlines}
+      \pagebreak
+      \part $-18_{10} - 2_{10} = $
+      \begin{solutionordottedlines}[2cm]
+      Umrechnung mit Taschenrechner
+      \begin{align*}
+      -18_{10} - 2_{10}& = -18 + -2\\ 
+      18_{10}& = 0001\,0010_2\\
+      -18_{10}& = 1001\,0010_2\\
+      2_{10} & = 1111\,0010_2\\
+      -2_{10} & = 1111\,1110_2\\
+      1111\,0010_2 + 1111\,1110_2 &= 1111\,0001_2\\
+      \mbox{Rückwandlung:}~1111\,0001_2 \rightarrow 0001\,0000_2& = -20_{10}
+      \end{align*}
+      \end{solutionordottedlines}
+      \part $100_{10} + 150_{10} =$
+      \begin{solutionordottedlines}[2cm]
+      Umrechnung mit Taschenrechner
+      \begin{align*}
+	 100_{10}& = 0110\,0100_2\\
+	 150_{10}& = 1001\,0110_2\\
+	 0110\,0100_2 + 1001\,0110_2& = 1111\,1010_2\\
+	 1111\,1010_2& = -6_{10}
+      \end{align*}
+	Das Ergebnis ist das Resultat eines Overflows, bzw. Flip-Flops.
+      \end{solutionordottedlines}
+  \end{parts}
+
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  \bonustitledquestion{(Optional) Stellen Sie die folgenden Zahlen als Festpunktzahl mit 16 Bit dar ($N = M = 8$ ohne Vorzeichenbit).}
+  \thequestiontitle
+  \begin{parts}
+      \part $1\,239{,}33034_{10} = $
+      \begin{solutionordottedlines}[2cm]
+		Nicht lösbar: Schon der Ganzzahlteil ist nicht mit 8 Bit darstellbar. Das Maximum für 8 Bit ist 256.
+      \end{solutionordottedlines}
+      \part $23{,}25_{10} = $
+      \begin{solutionordottedlines}[2cm]
+		1. Ganzzahlteil:
+		\begin{align*}
+			23 \div 2 = 11&~\mathrm{R}~1\\
+			11 \div 2 = 5&~\mathrm{R}~1\\
+			5 \div 2 = 2&~\mathrm{R}~1\\
+			2 \div 2 = 1&~\mathrm{R}~0\\
+			1 \div 2 = 0~\mathrm{R}~1 \rightarrow 23_{10} = 10111_2 \rightarrow 0001\,0111_2
+		\end{align*}
+		2. Nachkommateil:
+		\begin{align*}
+			0{,}25 \cdot 2& = 0{,}5~\mbox{Ganzzahlanteil: 0}\\
+			0{,}5 \cdot 2& = 1{,}0~\mbox{Ganzzahlanteil: 1}\\
+			0{,}25_{10}& \rightarrow 0100\,0000_2
+		\end{align*}
+		Zusammengesetzt: $23{,}25_{10} = 00010111\,01000000$
+      \end{solutionordottedlines}
+  \end{parts}
+
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   
+  \bonustitledquestion{(Optional) Stellen Sie die folgenden Zahlen als Gleitpunktzahl – nach IEEE 754 dar.}
+  \thequestiontitle
+  \begin{parts}
+      \part $15{,}75_{10} = $
+      \begin{solutionordottedlines}[2cm]
+		Annahme: Wortlänge von 32 Bit\\
+		1. Vorzeichen: positiv $\rightarrow 0$
+		2. Mantisse:
+		\begin{align*}
+			15_{10}& = 1111_2\\
+			0{,}75_{10}& = 0.11_2\\
+			15{,}75_{10}& = 1111.11_2
+		\end{align*}
+		Normalisierung: $1111{,}11_2 \cdot 2_{10}^0 = 1{,}11111_2 \cdot 2_{10}^3 \rightarrow e = 3_{10}$\\
+		3. Exponent: $E = e + \mbox{Biaswert} = 3_10 + 127_10 = 130_10 = 1000\,0010$\\
+		Zusammengesetzt: $15{,}75_{10} = 0\,10000010\,11111100000000000000000_2$
+      \end{solutionordottedlines}
+
+      \part $90{,}6328125_{10} = $
+      \begin{solutionordottedlines}[2cm]
+		Annahme: Wortlänge von 32 Bit\\
+		1. Vorzeichen: positiv $\rightarrow 0$
+		2. Mantisse:
+		\begin{align*}
+			90_{10}& = 1011010_2\\
+			0{,}6328125_{10} & = 0.1010001_2\\
+			90{,}6328125_{10} & = 1011010.1010001_2
+		\end{align*}
+		Normalisierung: $1011010{,}1010001_2 \cdot 2_{10}^0 = 1{,}0110101010001_2 \cdot 2_{10}^6$\\
+		3. Exponent: $E = e + \mbox{Biaswert} = 6_{10} + 127_10 = 133_10 = 10000101_2$\\
+		Zusammengesetzt: $90{,}6328125_{10} = 0\,10000101\,10110101010001000000000_2$\\
+      \end{solutionordottedlines}
+  \end{parts}
+
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{questions}
+

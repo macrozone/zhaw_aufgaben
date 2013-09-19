@@ -1,0 +1,142 @@
+%% Einleitung
+
+\begin{tabularx}{\textwidth}{Xr}
+  Constantin Lazari, Marco Wettstein & \today\\
+\end{tabularx}
+
+%% Fragen
+\begin{questions}
+	\question
+	Gegeben ist die folgende Formel: $F_1 = ((a_1 \vee \neg a_2) \Rightarrow a_3) \Leftrightarrow  \neg(\neg a_3 \wedge a_1)$
+
+	\begin{parts}
+		\part Bestimmen Sie den Wahrheitswert von $F_1$ für alle Belegungen (der Variablen $a_1, a_2$ und $a_3$).
+
+		\begin{solutionordottedlines}[2cm]
+			\begin{center}
+				\begin{tabular}{c|c|c||c|c|c||c|c|c||c}
+\multicolumn{3}{c||}{}		& \multicolumn{3}{c||}{$I_1 = ((a_1 \vee \neg a_2) \Rightarrow a_3)$}	& \multicolumn{3}{c||}{$I_2 = \neg(\neg a_3 \wedge a_1)$}	&		\\\hline		
+\multicolumn{3}{c||}{}		&				& $H_1 =$			&								&				& $H_2 =$					&					& $F_1 = $ \\\hline
+$a_1$	& $a_2$	& $a_3$	& $\neg a_2$ 	& $a_1 \vee \neg a_2$ 	& $H_1 \Rightarrow a_3$			& $\neg a_3$ 	& $\neg a_3 \wedge a_1$ 	& $\neg H_2$ 			& $I_1 \Leftrightarrow I_2$ \\\hline
+$w$		& $w$	&	$w$	&	$f$			&	$w$					&	$w$							&	$f$			& $f$						& $w$					& $w$	\\
+$w$		& $w$	&	$f$	&	$f$			&	$w$					&	$f$							&	$w$			& $w$						& $f$					& $w$	\\
+$w$		& $f$	&	$w$	&	$w$			&	$w$					&	$w$							&	$f$			& $f$						& $w$					& $w$	\\
+$w$		& $f$	&	$f$	&	$w$			&	$w$					&	$f$							&	$w$			& $w$						& $f$					& $w$	\\
+$f$		& $w$	&	$w$	&	$f$			&	$f$					&	$w$							&	$f$			& $f$						& $w$					& $w$	\\
+$f$		& $w$	&	$f$	&	$f$			&	$f$					&	$w$							&	$w$			& $f$						& $w$					& $w$	\\
+$f$		& $f$	&	$w$	&	$w$			&	$w$					&	$w$							&	$f$			& $f$						& $w$					& $w$	\\
+$f$		& $f$	&	$f$	&	$w$			&	$w$					&	$f$							&	$w$			& $f$						& $w$					& $f$	\\
+				\end{tabular}
+			\end{center}
+		\end{solutionordottedlines}
+		
+		\part Ist entscheidbar, ob $F_1$ erfüllbar ist? (Antwort bitte kurz begründen)
+		\begin{solutionordottedlines}[2cm]
+		Ja, denn mit Hilfe einer Wahrheitstabelle lässt sich für jede Zustandskombination der Variablen feststellen, ob die Aussage wahr oder falsch ist.
+		\end{solutionordottedlines}
+
+		\part Ist $F_1$ erfüllbar? (Antwort bitte kurz begründen)
+		\begin{solutionordottedlines}[2cm]
+		Ja, denn Erfühlbarkeit bedeutet, dass es mindestens eine Kombinationen von Eingabe-Parametern (Variablen) gibt, welche die Aussage wahr macht.
+		Dies ist in der Aufgabe bei 7 von 8 Fällen erfüllt.
+		\end{solutionordottedlines}
+		
+	\end{parts}
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%\pagebreak
+	\question Beweisen Sie die \enquote{De-Morganschen Regeln} (mit Hilfe von Wertetabellen):
+
+	\begin{parts}
+		\part $\neg(F_1 \vee F_2) \equiv (\neg F_1 \wedge \neg F_2)$
+		\begin{solutionordottedlines}[2cm]
+		\begin{center}
+			\begin{tabular}{c|c||c|c||c|c|c}
+				\multicolumn{2}{c||}{} & & Linker Teil & & & Rechter Teil \\\hline
+				$F_1$ 	& $F_2$ & $(F_1 \vee F_2)$ & $\neg(F_1 \vee F_2)$ & $\neg F_1$ 	& $\neg F_2$ 	& $(\neg F_1 \wedge \neg F_2)$ \\\hline
+				$w$		& $w$	& $w$				& $f$					& $f$			& $f$			& $f$\\
+				$w$		& $f$	& $f$				& $w$					& $f$			& $w$			& $w$\\
+				$f$		& $w$	& $f$				& $w$					& $w$			& $f$			& $w$\\
+				$f$		& $f$	& $f$				& $w$					& $w$			& $w$			& $w$\\
+			\end{tabular}
+		\end{center}
+		In den Spalten \enquote{Linker Teil} und \enquote{Rechter Teil} stehen in der gleichen Zeile immer die gleichen Werte, was diese
+		\enquote{De-Morgansche Regel} beweist.
+		\end{solutionordottedlines}
+
+% 		\part $\neg(F_1 \wedge F_2) \equiv (\neg F_1 \vee \neg F_2)$
+% 		\begin{solutionordottedlines}[2cm]
+% 		Es lässt sich folgende Wertetabelle aufstellen:\\
+% 		\begin{center}
+% 			\begin{tabular}{c|c||c|c||c|c|c}
+% 				\multicolumn{2}{c||}{} & & Linker Teil & & & Rechter Teil \\\hline
+% 				$F_1$ 	& $F_2$ & $(F_1 \wedge F_2)$ 	& $\neg(F_1 \wedge F_2)$ 	& $\neg F_1$ 	& $\neg F_2$ 	& $(\neg F_1 \vee \neg F_2)$ \\\hline
+% 				$w$		& $w$	& $w$					& $f$						& $f$			& $f$			& $f$\\
+% 				$w$		& $f$	& $w$					& $f$						& $f$			& $w$			& $f$\\
+% 				$f$		& $w$	& $w$					& $f$						& $w$			& $f$			& $f$\\
+% 				$f$		& $f$	& $f$					& $w$						& $w$			& $w$			& $w$\\
+% 			\end{tabular}
+% 		\end{center}
+% 		In den Spalten \enquote{Linker Teil} und \enquote{Rechter Teil} stehen in der gleichen Zeile immer die gleichen Werte, was die\\
+% 		\enquote{De-Morgansche Regel $\neg(F_1 \wedge F_2) \equiv (\neg F_1 \vee \neg F_2)$} beweist.
+% 
+% 		\end{solutionordottedlines}
+	\end{parts}
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%\pagebreak
+	\question Gegeben ist die folgende Formel:
+	\begin{equation*}
+		F_2 = ((a_1 \Rightarrow a_2) \Rightarrow \neg a_3) \vee \neg a_2
+	\end{equation*}
+
+	\begin{parts}
+		\part Geben Sie eine DNF zu $F_2$ an.
+		\begin{solutionordottedlines}[2cm]
+		\begin{align*}
+			F_2& = ((a_1 \Rightarrow a_2) \Rightarrow \neg a_3) \vee \neg a_2\\
+			(a_1 \Rightarrow a_2) & \Leftrightarrow \neg a_1 \vee a_2\\
+			((\neg a_1 \vee a_2) \Rightarrow \neg a_3) & \Leftrightarrow (\neg (\neg a_1 \vee a_2)) \vee \neg a_3)\\
+			& \Leftrightarrow \neg(a_2 \vee \neg a_1) \vee \neg a_3\\
+			\neg(a_2 \vee \neg a_1) & \Leftrightarrow \neg a_2 \wedge \neg \neg a_1\\
+			& \Leftrightarrow \neg a_2 \wedge a_1\\
+			((\neg a_2 \wedge a_1) \vee \neg a_3) \vee \neg a_2 & \Leftrightarrow (\neg a_2 \wedge a_1) \vee \neg a_3 \vee \neg a_2\\
+			& \Leftrightarrow \neg a_2 \wedge \neg a_3
+		\end{align*}
+		Die Disjunktive Normal Form ist: 
+		\begin{equation*}
+		F_2 = ((a_1 \Rightarrow a_2) \Rightarrow \neg a_3) \vee \neg a_2 \Leftrightarrow \neg a_2 \wedge \neg a_3	
+		\end{equation*}
+		\end{solutionordottedlines}
+
+		\part Geben Sie eine KDNF zu $F_2$ an.
+		\begin{solutionordottedlines}[2cm]
+			Bei der kanonischen disjunktiven Normalform müssen alle Variablen vorkommen:
+			\begin{center}
+				\begin{tabular}{c|c|c||c|c|c||c||c}
+					$a_1$ 	&$a_2$ 	& $a_3$		& $\neg a_2$	& $(a_1 \wedge \neg a_2)$	& $\neg a_3$ 	& $F_2$ & Ausdruck\\\hline
+					$w$ 	& $w$	& $w$		& $f$			& $f$						& $f$			& $f$	&\\ 
+					$w$ 	& $w$	& $f$		& $f$			& $f$						& $w$			& $w$	& $a_1 \wedge a_2 \wedge \neg a_3$\\ 
+					$w$ 	& $f$	& $w$		& $w$			& $w$						& $f$			& $w$	& $a_1 \wedge \neg a_2 \wedge a_3$\\ 
+					$w$ 	& $f$	& $f$		& $w$			& $w$						& $w$			& $w$	& $a_1 \wedge \neg a_2 \wedge \neg a_3$\\ 
+					$f$ 	& $w$	& $w$		& $f$			& $f$						& $f$			& $f$	& \\
+					$f$ 	& $w$	& $f$		& $f$			& $f$						& $w$			& $w$	& $\neg a_1 \wedge a_2 \wedge \neg a_3$\\ 
+					$f$ 	& $f$	& $w$		& $w$			& $f$						& $f$			& $w$	& $\neg a_1 \wedge \neg a_2 \wedge a_3$\\ 
+					$f$ 	& $f$	& $f$		& $w$			& $f$		 				& $w$			& $w$	& $\neg a_1 \wedge \neg a_2 \wedge \neg a_3$\\ 
+				\end{tabular}
+			\end{center}
+			Als KDNF:
+			\begin{align*} F_2:& (a_1 \wedge a_2 \wedge \neg a_3) \vee (a_1 \wedge \neg a_2 \wedge a_3) \vee (a_1 \wedge \neg a_2 \wedge \neg a_3)\\ 
+			& \vee (\neg a_1 \wedge a_2 \wedge \neg a_3) \vee (\neg a_1 \wedge \neg a_2 \wedge a_3) \vee (\neg a_1 \wedge \neg a_2 \wedge \neg a_3)
+			\end{align*}
+		\end{solutionordottedlines}
+	\end{parts}
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{questions}
+

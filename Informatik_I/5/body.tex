@@ -1,0 +1,208 @@
+%% Einleitung
+
+\begin{tabularx}{\textwidth}{Xr}
+  Constantin Lazari, Marco Wettstein & \today\\
+\end{tabularx}
+
+%% Fragen
+\begin{questions}
+	\titledquestion{Das Wort $1010 001$ mit dem korrekt gesetzten \textit{Paritäts-Bit 1} (für
+die gerade einfache Parität) wird bei der Übertragung durch Fehler verfälscht. Geben Sie an, ob der oder die Fehler erkannt
+werden und begründen Sie Ihre Antwort kurz (Stichwort).
+}
+	\thequestiontitle
+	\begin{parts}
+		\part $1010\,0011 \Rightarrow 1010\,0\underline{1}11 \Rightarrow$
+		\begin{solutionordottedlines}[2cm]
+			Es handelt sich um einen 1-Bit-Fehler. Dieser kann aufgrund des Parität-Bits erkannt werden.
+			Vier Einsen erheischen eine Null als Paritäts-Bit. 
+		\end{solutionordottedlines}
+		
+		\part $1010\,0011 \Rightarrow \underline{0}010\,\underline{1}011 \Rightarrow $
+		\begin{solutionordottedlines}[2cm]
+			Es handelt sich um einen 2-Bit-Fehler. Dieser kann mit der einfachen Parität nicht erkannt werden,
+			weil sich die Fehler gegenseitig maskieren.
+		\end{solutionordottedlines}
+
+		\part $1010\,0011 \Rightarrow 10\underline{0}0\,\underline{1}011 \Rightarrow $
+		\begin{solutionordottedlines}[2cm]
+			Es handelt sich um einen 2-Bit-Fehler. Dieser kann mit der einfachen Parität nicht erkannt werden,
+			weil sich die Fehler gegenseitig maskieren. 
+		\end{solutionordottedlines}
+		
+	\end{parts}
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\question Die Daten werden mit einer 2-Dimensionalen Parität (gerade) gesichert:
+	\begin{itemize}
+		\item das 1. Paritäts-Bit entspricht der einfachen Parität für jeweils einem 7-Bit-Wort
+		\item das 2. Paritäts-Bit ist das jeweils i-te Bit (Spalte)
+	\end{itemize}
+	Gegeben sind drei übertragene Blöcke mit Übertragungsfehlern.
+	Werden diese erkannt? Begründen Sie Ihre Antwort.
+
+	\begin{parts}
+		\part
+		\begin{tabular}{|c|c|c|c|c|c|c|c|}
+		\hline
+			1 & 1 & 0 & 0 & 0 & 0 & 1 & \textbf{1} \\\hline %1
+			1 & 1 & 0 & 0 & 0 & 1 & 0 & \textbf{1} \\\hline %2
+			1 & 1 & 0 & 1 & 0 & 1 & 1 & \textbf{0} \\\hline %3
+			1 & 1 & 0 & 0 & 1 & 0 & 0 & \textbf{1} \\\hline %4
+			1 & 1 & 0 & 0 & 1 & 0 & 1 & \textbf{0} \\\hline %5
+			1 & 1 & 0 & 1 & 1 & 1 & 0 & \textbf{0} \\\hline %6
+			1 & 1 & 0 & 0 & 1 & 1 & 1 & \textbf{1} \\\hline %7
+			1 & 1 & 0 & 1 & 0 & 0 & 0 & \textbf{1} \\\hline %8
+			\textbf{0} & \textbf{0} & \textbf{0} & \textbf{1} & \textbf{0} & \textbf{0} & \textbf{0} & \textbf{1}\\\hline
+		\end{tabular}
+
+		\begin{solutionordottedlines}[2cm]
+			Erkannt wird ein nicht korrigierbarer 2-Bit-Fehler:
+			\begin{enumerate}
+				\item Zeile 3 enthält fünf Einsen, Paritätsbit müsste 1 sein.
+				\item Zeile 6 enthält fünf Einsen, Paritätsbit müsste 1 sein. 
+			\end{enumerate}
+		\end{solutionordottedlines}
+		\pagebreak
+
+		\part
+		\begin{tabular}{|c|c|c|c|c|c|c|c|}
+		\hline
+			1 & 1 & 0 & 0 & 0 & 0 & 1 & \textbf{1} \\\hline %1
+			1 & 1 & 0 & 0 & 0 & 1 & 0 & \textbf{1} \\\hline %2
+			1 & 1 & 0 & 1 & 0 & 1 & 1 & \textbf{0} \\\hline %3
+			1 & 1 & 0 & 0 & 1 & 0 & 0 & \textbf{1} \\\hline %4
+			1 & 1 & 0 & 0 & 1 & 1 & 1 & \textbf{0} \\\hline %5
+			1 & 1 & 0 & 0 & 1 & 1 & 0 & \textbf{0} \\\hline %6
+			1 & 1 & 1 & 0 & 1 & 1 & 1 & \textbf{1} \\\hline %7
+			1 & 1 & 0 & 1 & 0 & 0 & 0 & \textbf{1} \\\hline %8
+			\textbf{0} & \textbf{0} & \textbf{0} & \textbf{1} & \textbf{0} & \textbf{0} & \textbf{0} & \textbf{1}\\\hline
+		\end{tabular}
+
+		\begin{solutionordottedlines}[2cm]
+		  Erkannt wird ein nicht korrigierbarer Mehr-Bit-Fehler:
+		  \begin{enumerate}
+		   \item Zeile 3 enthält fünf Einsen, Paritätsbit müsste 1 sein.
+		   \item Zeile 5 enthält fünf Einsen, Paritätsbit müsste 1 sein.
+		   \item Zeile 7 enthält sechs Einsen, Paritätsbit müsste 0 sein.
+		   \item Spalte 3 enthält eine Eins, Paritätsbit müsste 1 sein.
+		   \item Spalte 4 enthält 2 Einsen, Paritätsbit müsste 0 sein.
+		   \item Spalte 6 enthält 5 Einsen, Paritätsbit müsste 1 sein.
+		  \end{enumerate}
+		\end{solutionordottedlines}
+
+		\part
+		\begin{tabular}{|c|c|c|c|c|c|c|c|}
+		\hline
+			1 & 1 & 0 & 0 & 0 & 0 & 1 & \textbf{1} \\\hline %1
+			1 & 1 & 0 & 0 & 0 & 1 & 0 & \textbf{1} \\\hline %2
+			1 & 1 & 0 & 0 & 0 & 1 & 1 & \textbf{0} \\\hline %3
+			1 & 1 & 0 & 0 & 1 & 0 & 0 & \textbf{1} \\\hline %4
+			1 & 1 & 0 & 0 & 1 & 0 & 1 & \textbf{0} \\\hline %5
+			1 & 1 & 0 & 0 & 1 & 1 & 0 & \textbf{0} \\\hline %6
+			1 & 1 & 0 & 0 & 1 & 1 & 1 & \textbf{1} \\\hline %7
+			1 & 1 & 0 & 1 & 0 & 0 & 0 & \textbf{1} \\\hline %8
+			\textbf{0} & \textbf{0} & \textbf{0} & \textbf{1} & \textbf{0} & \textbf{0} & \textbf{0} & \textbf{1}\\\hline
+		\end{tabular}
+
+		\begin{solutionordottedlines}[2cm]
+		  In diesem Fall sind keine Fehler erkennbar, weil die Paritätsbits alle stimmen.
+		  Daraus kann leider nicht gefolgert werden, dass keine Fehler da sind.
+		  Beispielsweise bei einer Anordnung im Viereck, könnte der Block mindestens 4 Einzelbitfehler aufweisen.
+		\end{solutionordottedlines}
+
+		
+	\end{parts}
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{landscape}
+	\question Gegeben ist:
+	\begin{itemize}
+		\item das Generatorpolynom $g = x^5 + x^2 + x + 1$
+		\item eine zu übertragende Bitfolge: $1101\,0111\,0111$
+	\end{itemize}
+
+
+	\begin{parts}
+		\part Geben Sie $I(x)$ an
+		\begin{solutionordottedlines}[2cm]
+		\begin{equation*}
+		 I(x) = x^{11} + x^{10} + x^8 + x^6 + x^5 + x^4 + x^2 + x + 1
+		\end{equation*}
+
+		\end{solutionordottedlines}
+		\part Berechnen Sie $M(x)$ sowie $R(x)$ mit dem CRC-Verfahren
+		\begin{solutionordottedlines}[2cm]
+		  \begin{equation*}
+		   M(x) = (x^{11} + x^{10} + 	x^8 + 		x^6 + 		x^5 	+ 	x^4 + x^2 + x 	+ 	1) \cdot x^5 
+				= x^{16} + 	x^{15} + 	x^{13} + 	x^{11} + 	x^{10} + 	x^9 + x^7 + x^6 +	x^5
+		   \end{equation*}
+			Der Rest ergibt sich aus der Polynom-Division von $R(x) = M(x) \mod g$:
+			\begin{equation*}
+		   \begin{array}{ccccccccccccccccccc}
+			&(x^{16} 	&+ x^{15}	& 		&+ x^{13}	& 			&+ x^{11}	&+ x^{10} 	&+ x^9 	&			&+ x^7		&+ x^6		&+ x^5) &\multicolumn{6}{l}{\mod (x^5 + x^2 + x + 1)} \\ % = x^{11} + x^{10} + x^{6} + x^4 + x^3 + 1
+		  - &(x^{16} 	&			&		&+ x^{13} 	&+ x^{12}  	&+ x^{11})	&			&		&			&			&			&		&		&		&		&		&		&\\
+			\cline{2-7}			
+			& 			&x^{15} 	&		&			&+ x^{12}	&			&			&		&			&			&			&		&		&		&		&		&		&\\
+			&-			&(x^{15}	&		&			&+ x^{12} 	&+ x^{11}	&+ x^{10})	&		&			&			&			&		&		&		&		&		&		&\\
+			\cline{3-8}
+			&			&			&		&			&			&x^{11}		&			&		&			&			&			&		&		&		&		&		&		&\\
+			&			& 			&		&			&-			&(x^{11}	& 			& 		&+x^8		&+ x^7		&+ x^6)		&		&		&		&		&		&		&\\
+			\cline{7-12}
+			&			&			&		&			&			&			&			&x^9	&+ x^8 		& 			&			&+ x^5	&		&		&		&		&		&\\
+			&			&			&		&			&			&			&-			&(x^9	&			&			&+ x^6		&+ x^5 	&+ x^4)	&		&		&		&		&\\
+			\cline{9-14}
+			&			&			&		&			&			&			&			&		&x^8		&			&+ x^6		&		&+ x^4	&		&		&		& 		&\\
+			&			&			&		&			&			&			&			&-		&(x^8		&			&			&+ x^5	&+ x^4	&+ x^3	&		&		&		&\\
+			\cline{10-15}
+			&			&			&		&			&			&			&			&		&			&			&x^6		&+ x^5	&		&+ x^3 	&		&		&		&\\
+			&			&			&		&			&			&			&			&		&			&-			&(x^6		&		&		&+ x^3	&+ x^2	& +x	&		&\\	
+			\cline{12-17}
+			&			&			&		&			&			&			&			&		&			&			&			&x^5	&		&		&+ x^2	& +x	&		&\\
+			&			&			&		&			&			&			&			&		&			&			&-			&(x^5	&		&		&+ x^2	& +x	& +1)	&\\
+			\cline{13-18}
+			&			&			&		&			&			&			&			&		&			&			&			&		&		&		&		&		& 1 	&\rightarrow R(x) = 1\\
+			\end{array}
+			\end{equation*}
+		\end{solutionordottedlines}
+		
+		\part Was passiert, wenn $M(x)$ falsch übertragen wird? Geben Sie dazu ein Beispiel an.
+		\begin{solutionordottedlines}[2cm]
+		Übertragen wird $M(x) + R(x)$. Da bei der Berechnung die Subtraktion der Addition entspricht, muss die Polynom Division $(M(x) + R(x)) \mod g$ den Rest null ergeben.
+		Wird $M(x)$ falsch übertragen, ist in der überwiegenden Mehrheit der Fälle, die Ausnahmen sind alle Fälle, in denen durch den Fehler ein vielfaches von $g$ entsteht, der Rest nicht mehr null. 
+		Fehlt beispielsweise der Term $x^5$ (d.h. das letzte Bit der Ursprünglichen Nachricht ist 0 statt 1) ändert sich der Rest der Division $R(x)$ wie folgt:
+			\begin{equation*}
+		   \begin{array}{ccccccccccccccccccc}
+			&(x^{16} 	&+ x^{15}	& 		&+ x^{13}	& 			&+ x^{11}	&+ x^{10} 	&+ x^9 	&			&+ x^7		&+ x^6		& 		&		&		&		&		&+1		&\mod g \\
+		  - &(x^{16} 	&			&		&+ x^{13} 	&+ x^{12}  	&+ x^{11})	&			&		&			&			&			&		&		&		&		&		&		&\\
+			\cline{2-7}			
+			& 			&x^{15} 	&		&			&+ x^{12}	&			&			&		&			&			&			&		&		&		&		&		&		&\\
+			&-			&(x^{15}	&		&			&+ x^{12} 	&+ x^{11}	&+ x^{10})	&		&			&			&			&		&		&		&		&		&		&\\
+			\cline{3-8}
+			&			&			&		&			&			&x^{11}		&			&		&			&			&			&		&		&		&		&		&		&\\
+			&			& 			&		&			&-			&(x^{11}	& 			& 		&+x^8		&+ x^7		&+ x^6)		&		&		&		&		&		&		&\\
+			\cline{7-12}
+			&			&			&		&			&			&			&			&x^9	&+ x^8 		& 			&			&		&		&		&		&		&		&\\
+			&			&			&		&			&			&			&-			&(x^9	&			&			&+ x^6		&+ x^5 	&+ x^4)	&		&		&		&		&\\
+			\cline{9-14}
+			&			&			&		&			&			&			&			&		&x^8		&			&+ x^6		&+ x^5	&+ x^4	&		&		&		& 		&\\
+			&			&			&		&			&			&			&			&-		&(x^8		&			&			&+ x^5	&+ x^4	&+ x^3	&		&		&		&\\
+			\cline{10-15}
+			&			&			&		&			&			&			&			&		&			&			&x^6		&		&		&+ x^3 	&		&		&		&\\
+			&			&			&		&			&			&			&			&		&			&-			&(x^6		&		&		&+ x^3	&+ x^2	& +x	&		&\\	
+			\cline{12-18}
+			&			&			&		&			&			&			&			&		&			&			&			&		&		&		&x^2	& +x	&+1		&\\
+			\end{array}
+			\end{equation*}
+			Der Rest ist also $R(x) = x^2 + x + 1 \neq 0 \rightarrow$ bei der Übertragung ist ein Fehler aufgetreten.
+		\end{solutionordottedlines}
+	\end{parts}
+	\end{landscape}
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{questions}
+

@@ -1,0 +1,82 @@
+\usepackage[utf8]{inputenc}
+\usepackage[pdftex]{graphicx} 
+\usepackage{microtype}
+\usepackage[pdfborder={0 0 0}, plainpages=false, pdfpagelabels]{hyperref} 
+\usepackage[ngerman]{babel}
+\usepackage[babel]{csquotes}
+\usepackage{tabularx} 
+\usepackage{amsmath} 
+
+\usepackage{lmodern} %Type1-Schriftart fuer nicht-englische Texte
+\hyphenation{eine einer eines} % Trennung von eine, einer, eines vermeiden
+
+\usepackage{color}
+\usepackage{stmaryrd}
+
+
+%% Listings %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{verbatim}
+\usepackage{listings}
+\lstloadlanguages{[LaTeX]TeX}
+{\lstset{%
+  basicstyle=\footnotesize\ttfamily,
+  commentstyle=\slshape\color{green!50!black},
+  keywordstyle=\bfseries\color{blue!50!black},
+  identifierstyle=\color{blue},
+  stringstyle=\color{orange},
+  escapechar=\#,
+  emphstyle=\color{red}}
+}
+
+{
+  \lstset{%
+    basicstyle=\ttfamily,
+    keywordstyle=\bfseries,
+    commentstyle=\itshape,
+    escapechar=\#,
+    emphstyle=\bfseries\color{red}
+  }
+}
+
+\hypersetup{
+	pdfauthor   = {Constantin Lazari, Marco Wettstein (BA Informatik 2012, Zürich)},
+	pdftitle    = {Informatik I: Übung 3},
+	pdfsubject  = {Informatik Zahlen},
+	pdfkeywords = {Hexadezimal, Octal, Binär, Decimal},
+	pdfcreator  = {Kile},
+	pdfproducer = {pdflatex},
+	colorlinks 	= false
+} 
+
+\setlength{\parindent}{0em}
+\setlength{\parskip}{0.75em}
+
+%% Exam Settings
+\pagestyle{headandfoot}
+%\firstpageheader{Benutzer/innen im Umgang mit Informatikmitteln instruieren}{}{Lernkontrolle 1}
+\firstpageheader{Informatik I (2012)}{}{Übung 3}
+\firstpageheadrule
+
+%\runningheader{Benutzer/innen im Umgang mit Informatikmitteln instruieren}{}{Lernkontrolle 1}
+\runningheader{Informatik I}{}{
+\ifprintanswers
+  Lösung Übung 3
+\else
+  Übung 3
+\fi
+}
+\runningheadrule
+
+\firstpagefooter{}{Seite \thepage\ von \numpages}{}
+\firstpagefootrule
+
+\runningfooter{}{Seite \thepage\ von \numpages}{}
+\runningfootrule
+
+\pointsinrightmargin
+\pointpoints{Punkt}{Punkte}
+\bonuspointpoints{Bonuspunkt}{Bonuspunkte}
+\renewcommand{\solutiontitle}{\noindent\textbf{Lösung:}\par\noindent}
+
+\CorrectChoiceEmphasis{\bfseries}
+\renewcommand\choicelabel{$\boxempty$}
