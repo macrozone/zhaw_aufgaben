@@ -1,0 +1,129 @@
+%% Einleitung
+
+\begin{tabularx}{\textwidth}{Xr}
+  Constantin Lazari, Marco Wettstein & \today\\
+\end{tabularx}
+
+%% Fragen
+\begin{questions}
+  \question
+  Ziel dieser Aufgabe ist, dass Sie sich untereinander austauschen, im Buch und Ihren Unterlagen nachschlagen und sich gedanklich mit der Definition eines Algorithmus auseinandersetzen.
+
+	\begin{parts}
+		\part Spontan und ohne Hilfsmittel: Schreiben Sie alleine auf, wie sie den Algorithmus-Begriff definieren würden.
+		\begin{solutionordottedlines}[2cm]
+		Ein Algorithmus ist eine vollständige Reihe von Arbeitsanweisungen, die aus einem definierten Input einen definierten Output erzeugt.
+
+		\end{solutionordottedlines}
+
+		\part Überlegen Sie sich welche Eigenschaften eienn Algorithmus ausmachen.
+		\begin{solutionordottedlines}[2cm]
+		Die Arbeitsansweisungen eines Algorithmuses müssen dabei folgende Kriterien erfüllen:
+		\begin{enumerate}
+		 \item Vollständigkeit: Die Anweisungen müssen jeden auszuführenden Schritt enthalten.
+		 \item Unmissverständlichkeit: Jede Arbeitsanweisung muss eindeutig interpretierbar sein.
+		 \item Machbarkeit: Jede Arbeitsanweisung muss ausführbar sein. Unmögliche Anweisungen sind unzulässig.
+		\end{enumerate}
+		\end{solutionordottedlines}
+
+		\part Diskutieren Sie Ihre Definition in der Gruppe.
+		\begin{solutionordottedlines}[2cm]
+		Gefallene Stichworte:
+		\begin{enumerate}
+		 \item Regelwerk mit Ein- und Ausgabe
+		 \item Kochrezept
+		 \item vollständige Anweisungen
+		 \item Verfahren zur Problemlösung
+		 \item Beschreibung von Funktionen
+		 \item Befehlssequenz
+		\end{enumerate}
+
+		\end{solutionordottedlines}
+
+		\part Überarbeiten Sie Ihre erste Version des Begriffs Algorithmus und erstellen Sie ihre eigene Definition.
+		\begin{solutionordottedlines}[2cm]
+		 Ein Algorithmus ist eine endliche formale Beschreibung von Funktionen oder Operationen, die aus elementaren Anweisungen oder Konstrukten besteht.
+		\end{solutionordottedlines}
+
+		\part Vergleichen Sie ihre Definition mit den Unterlagen vom Theorieunterricht
+		\begin{solutionordottedlines}[2cm]
+		Ergänzende Eigenschaften:
+		\begin{itemize}
+		 \item Vollständigkeit: fraglich, ob Vollständigkeit nicht eher eine Relation zwischen Spezifikation und Algorithmus ist
+		 \item Machbarkeit: diskutabel. Es gibt Algorithmen für Quantencomputer, die in dieser Form (noch) nicht existieren.
+		\end{itemize}
+
+		\end{solutionordottedlines}
+	\end{parts}
+
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\question
+	Entwerfen Sie einen Algorithmus zur Berechnung der Fibonacci-Zahlen
+	\begin{parts}
+		\part Stellen Sie den Algorithmus graphisch dar
+		\begin{solutionordottedlines}[2cm]
+		
+\nassiwidth =\columnwidth \setiftext {J}{N}
+\STRUCT { Fibonacci Sequenz }{ Mathematischer Algorithmus }{
+  \ACTION{Einlesen von $n$ (die $n$-te Fibonacci-Zahl)}
+  \IF{$n > 2$}
+    \THEN{\ACTION{Gebe zurück: Fibonacci Sequenz mit $n - 1$}}
+    \ELSE{\ACTION{Gebe zurück: 1}}
+}
+
+		\end{solutionordottedlines}
+		
+		\part Geben Sie eine text-basierte Darstellung Ihres Algorithmus an.
+		\begin{solutionordottedlines}[2cm]
+		Algorithmus: Fibonacci Sequenz ($n$):
+		\begin{enumerate}
+		 \item Falls $n > 2$: Gebe Fibonacci Sequenz $n-1$
+		 \item Sonst: Gebe 1 zurück.
+		\end{enumerate}
+
+		\end{solutionordottedlines}
+
+		\part Diskutieren Sie die Vor- und Nachteile der verschiedenen Darstellungsformen.
+		\begin{solutionordottedlines}[2cm]
+		
+		\end{solutionordottedlines}
+	\end{parts}
+
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\question Datenobjekte
+	\begin{parts}
+		\part Welche Datenobjekte haben Sie für Ihren Algorithmus eingesetzt?
+		\begin{solutionordottedlines}[2cm]
+		\end{solutionordottedlines}
+		
+		\part Handelt es sich um elementare oder strukturierte?
+		\begin{solutionordottedlines}[2cm]
+		\end{solutionordottedlines}
+
+		\part Konstanten oder Variablen?
+		\begin{solutionordottedlines}[2cm]
+		\end{solutionordottedlines}
+	
+		\part Diskutieren Sie ihre Gedanken in der Gruppe.
+		\begin{solutionordottedlines}[2cm]
+		\end{solutionordottedlines}
+      \end{parts}
+      
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\question
+	Vom Algorithmus zum Programm
+	\begin{parts}
+		\part Implementieren Sie den Algorithmus. Jedoch nicht ihren eigenen, sondern den einer anderen Gruppe.
+		Nutzen Sie hierzu die erarbeite Darstellung des Algorithmus der anderen Gruppe.
+		\begin{solutionordottedlines}[2cm]
+		\end{solutionordottedlines}
+		
+		\part Falls Ihr Programm nicht oder nicht korrekt läuft, dann diskutieren Sie mit der Gruppe von welcher Sie den Algorithmus erhalten haben,
+		was dier Ursache der Fehler sein könnte.
+		\begin{solutionordottedlines}[2cm]
+		\end{solutionordottedlines}
+
+	\end{parts}
+	
+\end{questions}
+
