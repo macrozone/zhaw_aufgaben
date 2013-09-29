@@ -1,0 +1,43 @@
+\question
+% question title goes here
+Gegeben sei ein Prozessor mit einer Taktzykluszeit von 1.25 GHz und einem CPI-Wert von 1.45 (der Prozessor verfügt über keine Pipeline). Ein Programm benötigt zur Ausführung $150\,000$ Befehle.
+\begin{parts}
+\part Wie lang ist die ungefähre Ausführungszeit des Programms?
+\begin{solutionordottedlines}[2cm]
+% Solution goes here
+1. Benötigte Taktzyklen $z$:
+\begin{equation*}
+	z = 150\,000 \mbox{ Befehle} \cdot 1.45 \frac{\mbox{Taktzyklus}}{\mbox{Befehl}} = 217\,500 \mbox{ Taktzyklus}
+\end{equation*}
+2. Benötigte Zeit $t$:
+\begin{equation*}
+	t = \frac{217\,500 \mbox{ Taktzyklus}}{1.25 \cdot 10^9 \frac{\mbox{Taktzyklus}}{\mbox{s}}} = 0.000174 \mbox{ s} = 174.0~\mu \mbox{s}
+\end{equation*}
+\end{solutionordottedlines}
+%%% Next subquestion
+
+\part Wieso ist der berechnete Wert nur ein Näherungswert?
+% Subquestion text goes here
+\begin{solutionordottedlines}[2cm]
+Der CPI-Wert ist ein geschätzter Mittelwert. Er kann je nach Komplixität der verwendeten Befehle grösser oder kleiner sein. Der CPI-Wert ist also nicht exakt $\Rightarrow$ berechnete Werte sind ebenfalls exakt.
+\end{solutionordottedlines}
+%%% Next subquestion
+
+\part Der Prozessor wird durch einen leistungsfähigeren Prozessor mit 0.4 ns Taktzykluszeit und einem CPI-Wert von 1.8 ersetzt. Wie lang ist nun die Ausführungszeit des Programms?
+\begin{solutionordottedlines}[2cm]
+% Solution goes here
+1. Benötigte Taktzyklen $z$:
+\begin{equation*}
+	z = \frac{150\,000 \mbox{ Befehle}}{1.8 \cdot \frac{\mbox{Befehle}}{\mbox{Taktzyklus}}} = 83\,333.33 \mbox{ Taktzyklus}= 83 \mbox{ kTaktzyklus}
+\end{equation*}
+2. Benötigte Zeit $t$:
+\begin{equation*}
+	t = 83\,333.33 \cdot 0.4 \mbox{ Taktzyklus} \cdot 10^{-9} \frac{\mbox{s}}{\mbox{Taktzyklus}} = 0.00003333 \mbox{ s} = 33~\mu \mbox{s}
+\end{equation*}
+\end{solutionordottedlines}
+
+\part Der Prozessor (von c) wird um 10\% übertaktet (\enquote{overclocking}). Die erzielte Leistungssteigerung beträgt in der Realität aber nur knapp5\%. Wieso?
+\begin{solutionordottedlines}
+\dots
+\end{solutionordottedlines}
+\end{parts}

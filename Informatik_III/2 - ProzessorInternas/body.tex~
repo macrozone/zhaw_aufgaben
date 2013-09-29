@@ -1,0 +1,74 @@
+%% Einleitung
+
+\begin{tabularx}{\textwidth}{Xr}
+  Constantin Lazari, Marco Wettstein & \today\\
+\end{tabularx}
+
+%% Fragenh
+\begin{questions}
+  \question
+  Beispiele für klassische Prozessoren sind: Intel 4004, Intel 8008, Intel 8088, Intel 8086, Intel 80286, Intel 80386, Motorola 68000, Z80, MOS6502, PowerPC 970, PDP-11, CDP1802
+	\begin{parts}
+		\part Geben Sie das Erscheinungsjahr sowie die intern verwendeten Wortbreite an
+		\begin{solutionordottedlines}[2cm]
+		\end{solutionordottedlines}
+
+		\part Wie viele verschiedene Befehle können damit dargestellt werden?
+		\begin{solutionordottedlines}[2cm]		
+		\end{solutionordottedlines}
+		
+		\part Nennen Sie pro Prozessor ein Computer-Modell bzw. Einsatzgebiet.
+		\begin{solutionordottedlines}[2cm]		
+		\end{solutionordottedlines}
+	\end{parts}
+
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%\pagebreak
+	\question
+	Der ?Pufferüberlauf? gehört zu den häufigsten Sicherheitslücken in Programmen (mit Computern mit der Von-Neumann-Architektur).
+	
+	  \begin{parts}
+	  \part Beschreiben Sie kurz informell, warum die klassische HarvardArchitektur besser gegen diesen schützt (gegenüber der VonNeumann-Architektur).
+	  \begin{solutionordottedlines}[2cm]
+	  \end{solutionordottedlines}
+
+	  \part Ist Ihre Argumentation auch bei der Super-Harvard-Architekturallgemein korrekt?
+	  \begin{solutionordottedlines}[2cm]
+	  \end{solutionordottedlines}
+
+	\end{parts}
+
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%\pagebreak
+	\question
+	Wortbreiten
+
+	\begin{parts}
+	\part Kann ein Prozessor mit geringer Wortbreite auch Werte (bzw. Worte) 
+berechnen, die breiter sind? Zum Beispiel ein Prozessor mit 8-BitWortbreite auch 16- oder 32-Bit-Wörter. Falls ja, wie könnte ein 
+solches Verfahren aussehen?
+	\begin{solutionordottedlines}[2cm]
+	\end{solutionordottedlines}
+	
+	\end{parts}
+	\question Architektur
+	
+	\part 
+	\begin{parts}
+	\part Wieso können der Motorola 68000 und die Intel-Prozessoren 8088, 
+8086 und 80286 mehr als 65 KB Hauptspeicher adressieren? 
+	\begin{solutionordottedlines}[2cm]
+	\end{solutionordottedlines}
+	
+	\part Was unterscheidet den Motorola 68000 von der Architektur des Intel
+x86? Welche Vor- und Nachteile ergeben sich daraus?
+	\begin{solutionordottedlines}[2cm]
+	\end{solutionordottedlines}
+	
+	\end{parts}
+
+	
+
+
+\end{questions}
+

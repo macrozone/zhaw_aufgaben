@@ -1,0 +1,18 @@
+\question
+% question title goes here
+\begin{parts}
+\part
+% Subquestion text goes here
+\begin{solutionordottedlines}[2cm]
+% Solution goes here
+\end{solutionordottedlines}
+%%% Next subquestion
+
+\part
+% Subquestion text goes here
+\begin{solutionordottedlines}[2cm]
+% Solution goes here
+\end{solutionordottedlines}
+%%% Next subquestion
+
+\end{parts}
