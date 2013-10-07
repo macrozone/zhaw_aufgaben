@@ -7,12 +7,14 @@ z.\,B. \enquote{Befehl laden} $\leq 10$ ns,
 \enquote{Speicherzugriff} $\leq 20$ ns und 
 \enquote{Register schreiben} $\leq 5$ ns, \dots 
 
-Sie implementieren denselben Prozessor mit einer 5-stufigen Pipeline(die bisherigen Teilschritte erfordern gleich viel Zeit).
+Sie implementieren denselben Prozessor mit einer 5-stufigen Pipeline
+(die bisherigen Teilschritte erfordern gleich viel Zeit).
 \begin{parts}
 \part
 Wie gross ist die Zykluszeit des neuen Prozessors?
 \begin{solutionordottedlines}[2cm]
 % Solution goes here
+100 MHz, pro Zyklus wird aber nur ein Teilschritt des Befehls abgerbeitet.
 \end{solutionordottedlines}
 %%% Next subquestion
 
@@ -20,6 +22,7 @@ Wie gross ist die Zykluszeit des neuen Prozessors?
 Um wie viel schneller wird nun ein Befehl maximal ausgeführt?
 \begin{solutionordottedlines}[2cm]
 % Solution goes here
+Ein Befehl wird gleich schnell ausgeführt. 
 \end{solutionordottedlines}
 %%% Next subquestion
 
@@ -27,6 +30,7 @@ Um wie viel schneller wird nun ein Befehl maximal ausgeführt?
 Um wie viel schneller wird ein Programm maximal ausgeführt?
 \begin{solutionordottedlines}[2cm]
 % Solution goes here
+Wenn ein Programm n Befehle hat, ist das Programm auf der CPU mit der 5-stufigen Pipeline maximal (5 + n-1 ) / (5 * n) mal schneller als auf der CPU ohne pipeline.
 \end{solutionordottedlines}
 %%% Next subquestion
 
@@ -34,6 +38,11 @@ Um wie viel schneller wird ein Programm maximal ausgeführt?
 Wie könnte eine \enquote{bessere} Pipeline-Struktur entwickelt werden?
 \begin{solutionordottedlines}[2cm]
 % Solution goes here
+Lange Pipelines sind einerseits komplexer im Aufbau, anderseits anfällig für Pipeline Konflikte (.b. Control Hazards). In einem solchen fall muss die Pipeline geleert werden, was die Ausführung verlangsamt.
+
+Dem kann man einerseits mit besseren Sprungvorhersagen und anderseits kürzeren Pipelines begegnen.
+
+Weniger und ähnlich lange Befehle ist eine weitere Optimierung, wie sie in RISC CPUs gemacht wird.
 \end{solutionordottedlines}
 %%% Next subquestion
 \end{parts}
