@@ -4,6 +4,11 @@ Eine effektive Möglichkeit der Leistungssteigerung bei Prozessoren ist Pipelini
 \part Begründen Sie, warum eine n-stufige Pipeline nicht automatisch zu einer n-fachen Leistungssteigerung führt, selbst wenn es gelingt, die Zykluszeit auf 1/$n$ zu reduzieren (\enquote{perfekte Gleichverteilung} der Stufen -- in der Praxis eigentlich nicht realisierbar).
 \begin{solutionordottedlines}[2cm]
 % Solution goes here
+Eine Pipeline würde nur zu einer n-fachen Leistungsteigerung führen, wenn in jedem Teilschritt der Pipeline zu jeder Zeit eine Operation der Befehlskette gemacht werden kann und die Pipeline nie geleert wird.
+
+In der Praxis kommt es aber einerseits zu Löchern in der Pipeline, wenn eine bestimmte Befehlsausführung länger dauert als normal und anderszeits zum Leeren der Pipeline ("Pipeline Flush") durch Konflikte, insbesondere Kontrollflusskonflikte.
+
+In diesem Fall reduziert sich der Durchsatz der Pipeline
 \end{solutionordottedlines}
 %%% Next subquestion
 \end{parts}
