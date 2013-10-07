@@ -1,3 +1,4 @@
+\pagebreak
 \question
 Gegeben sei ein Prozessor ohne Pipeline mit der „bekannten“ Befehlsabarbeitung (siehe Vorlesung) und einer Zykluszeit von 20 MHz. Ein Analyse hat ergeben, dass die einzelnen Teilschritte sehr unterschiedliche Zeit erfordern:
 
@@ -14,7 +15,7 @@ Sie implementieren denselben Prozessor mit einer 5-stufigen Pipeline
 Wie gross ist die Zykluszeit des neuen Prozessors?
 \begin{solutionordottedlines}[2cm]
 % Solution goes here
-100 MHz, pro Zyklus wird aber nur ein Teilschritt des Befehls abgerbeitet.
+100 MHz, pro Zyklus wird aber nur ein Teilschritt des Befehls abgearbeitet.
 \end{solutionordottedlines}
 %%% Next subquestion
 
@@ -30,7 +31,7 @@ Ein Befehl wird gleich schnell ausgeführt.
 Um wie viel schneller wird ein Programm maximal ausgeführt?
 \begin{solutionordottedlines}[2cm]
 % Solution goes here
-Wenn ein Programm n Befehle hat, ist das Programm auf der CPU mit der 5-stufigen Pipeline maximal (5 + n-1 ) / (5 * n) mal schneller als auf der CPU ohne pipeline.
+Wenn ein Programm $n$ Befehle hat, ist das Programm auf der CPU mit der 5-stufigen Pipeline maximal $\frac{5 + n-1}{5 \cdot n}$ mal schneller als auf der CPU ohne Pipeline.
 \end{solutionordottedlines}
 %%% Next subquestion
 
@@ -38,11 +39,11 @@ Wenn ein Programm n Befehle hat, ist das Programm auf der CPU mit der 5-stufigen
 Wie könnte eine \enquote{bessere} Pipeline-Struktur entwickelt werden?
 \begin{solutionordottedlines}[2cm]
 % Solution goes here
-Lange Pipelines sind einerseits komplexer im Aufbau, anderseits anfällig für Pipeline Konflikte (.b. Control Hazards). In einem solchen fall muss die Pipeline geleert werden, was die Ausführung verlangsamt.
+Lange Pipelines sind einerseits komplexer im Aufbau, anderseits anfällig für Pipeline Konflikte (z.\,B. Control Hazards). In einem solchen Fall muss die Pipeline geleert werden, was die Ausführung verlangsamt.
 
 Dem kann man einerseits mit besseren Sprungvorhersagen und anderseits kürzeren Pipelines begegnen.
 
-Weniger und ähnlich lange Befehle ist eine weitere Optimierung, wie sie in RISC CPUs gemacht wird.
+Weniger und ähnlich lange Befehle sind eine weitere Optimierung, wie sie in RISC CPUs gemacht werden.
 \end{solutionordottedlines}
 %%% Next subquestion
 \end{parts}

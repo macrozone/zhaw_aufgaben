@@ -1,4 +1,3 @@
-\pagebreak
 \question
 Gegeben sei ein Prozessor mit 4-stufiger Pipeline (die vier Stufen, wie in der Vorlesung angegeben) und folgender Ausschnitt einer Programmabfolge: 
 
@@ -8,31 +7,14 @@ Gegeben sei ein Prozessor mit 4-stufiger Pipeline (die vier Stufen, wie in der V
 Skizzieren Sie graphisch eine (mögliche) Ausführungsabfolge, unter der Annahme, das beim 1. Sprung zu einer nicht vorhergesehenen Adresse gesprungen wird (\enquote{branch prediction} war falsch).
 \begin{solutionordottedlines}[2cm]
 % Solution goes here
-Op. sei Operation
-\begin{center}
 \begin{tabular}{cllll}
 	\toprule
 	\multicolumn{1}{c}{\textbf{Zyklus}} & \multicolumn{4}{c}{\textbf{Pipeline}}\\
 	& \multicolumn{1}{c}{\textbf{Stufe 1}} & \multicolumn{1}{c}{\textbf{Stufe 2}} & \multicolumn{1}{c}{\textbf{Stufe 3}} & \multicolumn{1}{c}{\textbf{Stufe 4}}\\
 	\midrule
 	1 & Load & & & \\\hline
-	2 & Sprung & Load & & \\\hline
-	3 & Addition & Sprung & Load & \\\hline
-	4 & ODER-Op. & Addition & Sprung & Load \\\hline
-	5 & Store & ODER-Op. & Addition & Sprung \\\hline
-	  & \multicolumn{4}{c}{\textit{Pipeline Flush}} \\\hline
-	6 & Addition & & & \\\hline
-	7 & ODER-Op. & Addition & & \\\hline
-	8 & Store & ODER-Op. & Addition & \\\hline
-	9 & Subtraktion & Store & ODER-Op. & Addition \\\hline
-	10 & Sprung & Subtraktion & Store & ODER-Op.\\\hline
-	11 & AND-Op. & Sprung & Subtraktion & Store \\\hline
-	12 & & AND-Op. & Sprung & Subtraktion \\\hline
-	13 & & & AND-Op. & Sprung \\\hline
-	14 & & & & AND-Op.\\
 	\bottomrule
 \end{tabular}
-\end{center}
 \end{solutionordottedlines}
 %%% Next subquestion
 
