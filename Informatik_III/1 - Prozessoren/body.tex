@@ -10,34 +10,27 @@
   Beispiele für klassische Prozessoren sind: Intel 4004, Intel 8008, Intel 8088, Intel 8086, Intel 80286, Intel 80386, Motorola 68000, Z80, MOS
 6502, PowerPC 970, PDP-11, CDP1802
 	\begin{parts}
-		\part Geben Sie das Erscheinungsjahr sowie die intern verwendeten Wortbreite an
+		\part Geben Sie das Erscheinungsjahr sowie die intern verwendeten Wortbreite an. Wie viele verschiedene Befehle können damit dargestellt werden? Nennen Sie pro Prozessor ein Computer-Modell bzw. Einsatzgebiet.
 		\begin{solutionordottedlines}[2cm]
 		\begin{center}
-		\begin{tabular}{lrr}
-		\multicolumn{1}{c}{\textbf{Prozessor}} & \multicolumn{1}{c}{\textbf{Jahr}} & \multicolumn{1}{c}{\textbf{Wortbreite}}\\
+		\begin{tabular}{lrrrl}
+		\multicolumn{1}{c}{\textbf{Prozessor}} & \multicolumn{1}{c}{\textbf{Jahr}} & \multicolumn{1}{c}{\textbf{Wort}} & \multicolumn{1}{c}{\textbf{Befehle}} & \multicolumn{1}{c}{\textbf{Einsatzgebiet}}\\
 		\midrule
-		Intel 4004 & & \\\hline
-		Intel 8008 & & \\\hline
-		Intel 8088 & & \\\hline
-		Intel 8086 & & \\\hline
-		Intel 80286 & & \\\hline
-		Intel 80386 & & \\\hline
-		Motorola 68000 & & \\\hline
-		Z80 & & \\\hline
-		MOS 6502 & & \\\hline
-		PowerPC 970 & & \\\hline
-		PDP-11 & & \\\hline
-		CDP1802 & & \\\hline
+		Intel 4004 & 1971 & 4 Bit & 16 & Rechenmaschinen\\\hline
+		Intel 8008 & 1972 & 8 Bit & 256 & Terminals\\\hline
+		Intel 8086 & 1978 & 16 Bit & 65\,536 & IBM-PC\\\hline
+		Intel 8088 & 1979 & 16 Bit & 65\,536 & IBM-PC\\\hline
+		Intel 80286 & 1982 & 16 Bit & 65\,536 & PCs\\\hline
+		Intel 80386 & 1985 & 32 Bit & 4\,294\,967\,296 & PCs\\\hline
+		Motorola 68000 & 1979 & 32 Bit& 4\,294\,967\,296 & Apple Macintosh \\\hline
+		Z-80 & 1976 & 8 Bit& 256 & Arcade Spiele\\\hline
+		MOS 6502 & 1975 & 8 Bit & 256 & HP-Rechner\\\hline
+		PowerPC 970 & 2002 & 64 Bit & $\approx 1.8 \times 10^{19}$ & Macintosh G5\\\hline
+		PDP-11 & 1970 & 16 Bit & 65\,536 & Regelungstechnik\\\hline
+		CDP1802 (RCA 1802) & 1976 & 8 Bit & 256 & Raumfahrt\\\hline
 		\end{tabular}
 		\end{center}
-		\end{solutionordottedlines}
-
-		\part Wie viele verschiedene Befehle können damit dargestellt werden?
-		\begin{solutionordottedlines}[2cm]		
-		\end{solutionordottedlines}
-		
-		\part Nennen Sie pro Prozessor ein Computer-Modell bzw. Einsatzgebiet.
-		\begin{solutionordottedlines}[2cm]		
+Anmerkung zu Intel 4004: Die Befehlsbreite ist 8-Bit, es stehen 46 Befehle zur Verfügung.
 		\end{solutionordottedlines}
 	\end{parts}
 
@@ -47,12 +40,15 @@
 	Der \enquote{Pufferüberlauf} gehört zu den häufigsten Sicherheitslücken in Programmen (mit Computern mit der Von-Neumann-Architektur).
 	
 	  \begin{parts}
-	  \part Beschreiben Sie kurz informell, warum die klassische HarvardArchitektur besser gegen diesen schützt (gegenüber der VonNeumann-Architektur).
+	  \part Beschreiben Sie kurz informell, warum die klassische Harvard Architektur besser gegen diesen schützt (gegenüber der VonNeumann-Architektur).
 	  \begin{solutionordottedlines}[2cm]
+	  Bei der klassischen Harvard Architektur sind Programmcode (Programmdaten) und Nicht-Programmdaten in physisch getrennten Speichern abgelegt. Bei der Von-Neumann-Architektur sind Code und Daten aber im gleichen Speicher abgelegt. Werden dabei Daten von externen Quellen (Datenträger, Tastatur, oder ähnliches) in den Arbeitspeicher geladen, muss das Programm einen bestimmten Speicherbereich (Puffer) für diese Daten reservieren. Sind die geladenen Daten grösser als dieser Bereich, ist es möglich, dass das Programm Teile des Programmcodes im Speicher überschreibt. So ist es möglich, über eingelesene Daten, den Ablauf des Programmes zu manipulieren. Bei der Harvard-Architektur ist dies nicht möglich, weil eingelesene Daten in einen anderen Speicher geladen werden, als der Programmcode.
 	  \end{solutionordottedlines}
 
+	  \pagebreak
 	  \part Ist Ihre Argumentation auch bei der Super-Harvard-Architektur allgemein korrekt?
 	  \begin{solutionordottedlines}[2cm]
+	  Nein, denn bei der Super-Harvard-Architektur sind Programmdaten und Nicht-Programmdaten wieder im selben Speicher untergebracht. Es existiert lediglich eine Trennung von Program-Bus (für Programmdaten) und Daten-Bus (für Nicht-Programmdaten).
 	  \end{solutionordottedlines}
 
 	\end{parts}
@@ -63,8 +59,10 @@
 	Wortbreiten
 
 	\begin{parts}
-	\part Kann ein Prozessor mit geringer Wortbreite auch Werte (bzw. Worte) berechnen, die breiter sind? Zum Beispiel ein Prozessor mit 8-BitWortbreite auch 16- oder 32-Bit-Wörter. Falls ja, wie könnte ein solches Verfahren aussehen?
+	\part Kann ein Prozessor mit geringer Wortbreite auch Werte (bzw. Worte) berechnen, die breiter sind? Zum Beispiel ein Prozessor mit 8-Bit Wortbreite auch 16- oder 32-Bit-Wörter. Falls ja, wie könnte ein solches Verfahren aussehen?
 	\begin{solutionordottedlines}[2cm]
+	Offensichtlich ist dies möglich, sonst könnte nicht mit sehr sehr grossen Werten gerechnet werden können.\\
+	Mögliches Verfahren: Man hängt einfach mehrere Speicherregister hintereinander. Beispielsweise besteht dann ein 16-Bit Wort in Wirklichkeit aus 2 8-Bit-Wörtern. Wenn das Programm weiss, womit es es jeweils zu tun hat und ein entsprechendes Handling implementiert ist, besteht theoretisch kein Problem.
 	\end{solutionordottedlines}
 	
 	\end{parts}
@@ -74,12 +72,13 @@
 	\begin{parts}
 	\part Wieso können der Motorola 68000 und die Intel-Prozessoren 8088, 8086 und 80286 mehr als 65 KB Hauptspeicher adressieren? 
 	\begin{solutionordottedlines}[2cm]
+	Der Speicher wird in jeweils 64kb grosse Segmente unterteilt, welche intern mittels 16bit grossen Adressen addressiert werden kann. Einer 16bit Adresse wird dabei eine wiederum 16bit grosse Segmentadresse vorangestellt. Die Segmentadresse im Segmentregister bestimmt dabei das zu wählende Speichersegment, die Adresse im Adressregister die konkrete Speicherzelle.
 	\end{solutionordottedlines}
 	
 	\part Was unterscheidet den Motorola 68000 von der Architektur des Intel x86? Welche Vor- und Nachteile ergeben sich daraus?
 	\begin{solutionordottedlines}[2cm]
+	Der Motorola 68k enthält einen grundsätzlich anderen Befehlssatz als die Intel x86er Prozessoren. Operationen und Operanden können frei kombiniert werden. Es gibt also keine eigenen Befehle für \enquote{diese Operation} mit \enquote{jenem Operand}. Im Ergebnis ist der Motorola 68k einfacher zu programmieren.
 	\end{solutionordottedlines}
-	
 	\end{parts}
 
 \end{questions}

@@ -1,0 +1,35 @@
+\question
+Gegeben sei ein einfacher Prozessor ohne Pipelining mit einer Wortbreite von 2 Byte (für Daten und Befehle). 
+\begin{parts}
+\part
+Welchen Wert beinhaltet der Befehlszähler jeweils nach Ausführungder jeweiligen Befehle der folgenden Befehlssequenz (der Initialwert
+sei $24\,048$ für den ersten Befehl): Ladebefehl, Ladebefehl, Addition, unbedingter Sprung um -12, Speicherbefehl, unbedingter Sprung um +8, Addition \dots?
+\begin{solutionordottedlines}[2cm]
+\begin{center}
+\begin{tabular}{lrl}
+	\toprule
+	\textbf{Befehl} & \textbf{Befehlszähler} & \textbf{Kommentar}\\\midrule
+	Ladebefehl				& $24\,048$ & Initialwert\\\hline
+	Ladebefehl				& $24\,050$ & $+ 2$\\\hline
+	Additionsbefehl			& $24\,052$ & $+ 2$\\\hline
+	Sprungbefehl 			& $24\,054$ & $+ 2$\\\hline
+	\textit{Sprung}			& $24\,042$ & 
+	Speicherbefehl			& $24\,042$ & $+ 2$\\\hline
+	Sprungbefehl 			& $24\,050$ & $+ 8$\\\hline
+	Additionsbefehl			& $24\,052$ & $+ 2$\\\hline
+	\dots					& $24\,054$ & $+ 2$\\\bottomrule
+\end{tabular}
+
+\end{center}
+\end{solutionordottedlines}
+%%% Next subquestion
+
+\part Was sehen Sie als Informatiker sofort?
+\begin{solutionordottedlines}[2cm]
+Die Sprunggrössen sind keine ganzzahligen Vielfachen von 16. Es wird also nicht an den Anfang eines Befehls, sondern irgendwo zwischen zwei Befehle gesprungen.
+Mit hoher Wahrscheinlichkeit wird das Programm nicht oder zumindest nicht richtig funktionieren. 
+\end{solutionordottedlines}
+%%% Next subquestion
+
+\end{parts}
+

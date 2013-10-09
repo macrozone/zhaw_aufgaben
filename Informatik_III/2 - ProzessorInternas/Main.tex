@@ -1,4 +1,11 @@
-\usepackage[ansinew]{inputenc}
+\documentclass[12pt, a4paper, answers]{exam} % LÃ¶sungen
+%\documentclass[12pt, addpoints, a4paper]{exam} % Ohne LÃ¶sungen
+\newcommand{\myAuthor}{Constantin Lazari, Marco Wettstein}
+\newcommand{\myTitle}{Ãœbungen Informatik}
+\newcommand{\mySubject}{Informatik III (2013)}
+\newcommand{\myNumber}{2}
+
+\usepackage[utf8]{inputenc}
 \usepackage[pdftex]{graphicx} 
 \usepackage{microtype}
 \usepackage[pdfborder={0 0 0}, plainpages=false, pdfpagelabels]{hyperref} 
@@ -12,6 +19,7 @@
 
 \usepackage{lmodern} %Type1-Schriftart fuer nicht-englische Texte
 \hyphenation{eine einer eines} % Trennung von eine, einer, eines vermeiden
+\usepackage{microtype}
 
 \usepackage{color}
 \usepackage{stmaryrd}
@@ -42,9 +50,9 @@
 }
 
 \hypersetup{
-	pdfauthor   = {Constantin Lazari, Marco Wettstein (BA Informatik 2012, Zürich)},
-	pdftitle    = {Informatik III: Übung 1},
-	pdfsubject  = {Informatik Basiswissen},
+	pdfauthor   = {\myAuthor},
+	pdftitle    = {\myTitle},
+	pdfsubject  = {\mySubject},
 	pdfkeywords = {},
 	pdfcreator  = {Kile},
 	pdfproducer = {pdflatex},
@@ -57,15 +65,15 @@
 %% Exam Settings
 \pagestyle{headandfoot}
 %\firstpageheader{Benutzer/innen im Umgang mit Informatikmitteln instruieren}{}{Lernkontrolle 1}
-\firstpageheader{Informatik III (2013)}{}{Übung 1}
+\firstpageheader{\mySubject}{}{Ãœbung \myNumber}
 \firstpageheadrule
 
 %\runningheader{Benutzer/innen im Umgang mit Informatikmitteln instruieren}{}{Lernkontrolle 1}
-\runningheader{Informatik III}{}{
+\runningheader{\mySubject}{}{
 \ifprintanswers
-  Lösung Übung 1
+  LÃ¶sung Ãœbung \myNumber
 \else
-  Übung 1
+  Ãœbung \myNumber
 \fi
 }
 \runningheadrule
@@ -79,7 +87,21 @@
 \pointsinrightmargin
 \pointpoints{Punkt}{Punkte}
 \bonuspointpoints{Bonuspunkt}{Bonuspunkte}
-\renewcommand{\solutiontitle}{\noindent\textbf{Lösung:}\par\noindent}
+\renewcommand{\solutiontitle}{\noindent\textbf{LÃ¶sung:}\par\noindent}
 
 \CorrectChoiceEmphasis{\bfseries}
 \renewcommand\choicelabel{$\boxempty$}
+
+\begin{document}
+	\begin{tabularx}{\textwidth}{Xr}
+	\myAuthor & \today\\
+	\end{tabularx}
+  %% Lernkontrolle einbinden
+	\begin{questions}
+	\input{aufg1-CPI}
+	\input{aufg2-Befehle}
+	\input{aufg3-Pipeline}
+	\input{aufg4-Pipelining}
+	\input{aufg5-Pipeline}
+	\end{questions}
+\end{document}

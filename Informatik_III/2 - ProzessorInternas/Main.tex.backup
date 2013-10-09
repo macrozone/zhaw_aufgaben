@@ -1,34 +1,57 @@
+\documentclass[12pt, a4paper, answers]{exam} % LÃ¶sungen
+%\documentclass[12pt, addpoints, a4paper]{exam} % Ohne LÃ¶sungen
+\newcommand{myAuthor}{Constantin Lazari, Marco Wettstein}
+\newcommand{myTitle}{Ãœbungen Informatik}
+\newcommand{mySubject}{Informatik III (2013)}
+\newcommand{myNumber}{2}
+
 \usepackage[ansinew]{inputenc}
 \usepackage[pdftex]{graphicx} 
 \usepackage{microtype}
 \usepackage[pdfborder={0 0 0}, plainpages=false, pdfpagelabels]{hyperref} 
 \usepackage[ngerman]{babel}
 \usepackage[babel]{csquotes}
-\usepackage{tabularx}
+\usepackage{tabularx} 
+
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata}
+\usepackage{amsmath,amssymb,amsthm}
 
 \usepackage{lmodern} %Type1-Schriftart fuer nicht-englische Texte
 \hyphenation{eine einer eines} % Trennung von eine, einer, eines vermeiden
 
 \usepackage{color}
 \usepackage{stmaryrd}
-\usepackage{nassi}
+\usepackage{booktabs}
+
 
 %% Listings %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\usepackage{verbatim}
 \usepackage{listings}
-\lstloadlanguages{Java}
+\lstloadlanguages{[LaTeX]TeX}
 {\lstset{%
+  basicstyle=\footnotesize\ttfamily,
+  commentstyle=\slshape\color{green!50!black},
+  keywordstyle=\bfseries\color{blue!50!black},
+  identifierstyle=\color{blue},
+  stringstyle=\color{orange},
+  escapechar=\#,
+  emphstyle=\color{red}}
+}
+{
+  \lstset{%
     basicstyle=\ttfamily,
     keywordstyle=\bfseries,
     commentstyle=\itshape,
-  escapechar=\#,
-  tabsize=2
+    escapechar=\#,
+    emphstyle=\bfseries\color{red}
+  }
 }
 
 \hypersetup{
-	pdfauthor   = {Constantin Lazari, Marco Wettstein (BA Informatik 2012, Zürich)},
-	pdftitle    = {Algorithmen und Datenstrukturen: Übung 1},
-	pdfsubject  = {Informatik},
+	pdfauthor   = {\myAuthor},
+	pdftitle    = {\myTitle},
+	pdfsubject  = {\mySubject},
 	pdfkeywords = {},
 	pdfcreator  = {Kile},
 	pdfproducer = {pdflatex},
@@ -41,15 +64,15 @@
 %% Exam Settings
 \pagestyle{headandfoot}
 %\firstpageheader{Benutzer/innen im Umgang mit Informatikmitteln instruieren}{}{Lernkontrolle 1}
-\firstpageheader{Algorithmen und Datenstrukturen (2013)}{}{Übung 1}
+\firstpageheader{\mySubject}{}{Ãœbung \myNumber}
 \firstpageheadrule
 
 %\runningheader{Benutzer/innen im Umgang mit Informatikmitteln instruieren}{}{Lernkontrolle 1}
-\runningheader{Algorithmen und Datenstrukturen (2013}{}{
+\runningheader{\mySubject}{}{
 \ifprintanswers
-  Lösung Übung 1
+  LÃ¶sung Ãœbung \myNumber
 \else
-  Übung 1
+  Ãœbung \myNumber
 \fi
 }
 \runningheadrule
@@ -63,7 +86,12 @@
 \pointsinrightmargin
 \pointpoints{Punkt}{Punkte}
 \bonuspointpoints{Bonuspunkt}{Bonuspunkte}
-\renewcommand{\solutiontitle}{\noindent\textbf{Lösung:}\par\noindent}
+\renewcommand{\solutiontitle}{\noindent\textbf{LÃ¶sung:}\par\noindent}
 
 \CorrectChoiceEmphasis{\bfseries}
 \renewcommand\choicelabel{$\boxempty$}
+
+\begin{document}
+  %% Lernkontrolle einbinden
+  \input{aufg1-CIP} 
+\end{document}

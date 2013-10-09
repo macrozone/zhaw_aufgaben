@@ -1,0 +1,49 @@
+\pagebreak
+\question
+Gegeben sei ein Prozessor ohne Pipeline mit der „bekannten“ Befehlsabarbeitung (siehe Vorlesung) und einer Zykluszeit von 20 MHz. Ein Analyse hat ergeben, dass die einzelnen Teilschritte sehr unterschiedliche Zeit erfordern:
+
+z.\,B. \enquote{Befehl laden} $\leq 10$ ns, 
+\enquote{Register lesen} $\leq 3$ ns, 
+\enquote{Rechenoperation durchführen} $\leq 5$ ns, 
+\enquote{Speicherzugriff} $\leq 20$ ns und 
+\enquote{Register schreiben} $\leq 5$ ns, \dots 
+
+Sie implementieren denselben Prozessor mit einer 5-stufigen Pipeline
+(die bisherigen Teilschritte erfordern gleich viel Zeit).
+\begin{parts}
+\part
+Wie gross ist die Zykluszeit des neuen Prozessors?
+\begin{solutionordottedlines}[2cm]
+% Solution goes here
+100 MHz, pro Zyklus wird aber nur ein Teilschritt des Befehls abgearbeitet.
+\end{solutionordottedlines}
+%%% Next subquestion
+
+\part
+Um wie viel schneller wird nun ein Befehl maximal ausgeführt?
+\begin{solutionordottedlines}[2cm]
+% Solution goes here
+Ein Befehl wird gleich schnell ausgeführt. 
+\end{solutionordottedlines}
+%%% Next subquestion
+
+\part
+Um wie viel schneller wird ein Programm maximal ausgeführt?
+\begin{solutionordottedlines}[2cm]
+% Solution goes here
+Wenn ein Programm $n$ Befehle hat, ist das Programm auf der CPU mit der 5-stufigen Pipeline maximal $\frac{5 + n-1}{5 \cdot n}$ mal schneller als auf der CPU ohne Pipeline.
+\end{solutionordottedlines}
+%%% Next subquestion
+
+\part
+Wie könnte eine \enquote{bessere} Pipeline-Struktur entwickelt werden?
+\begin{solutionordottedlines}[2cm]
+% Solution goes here
+Lange Pipelines sind einerseits komplexer im Aufbau, anderseits anfällig für Pipeline Konflikte (z.\,B. Control Hazards). In einem solchen Fall muss die Pipeline geleert werden, was die Ausführung verlangsamt.
+
+Dem kann man einerseits mit besseren Sprungvorhersagen und anderseits kürzeren Pipelines begegnen.
+
+Weniger und ähnlich lange Befehle sind eine weitere Optimierung, wie sie in RISC CPUs gemacht werden.
+\end{solutionordottedlines}
+%%% Next subquestion
+\end{parts}
