@@ -1,0 +1,136 @@
+%% Einleitung
+
+\begin{tabularx}{\textwidth}{Xr}
+  Constantin Lazari, Marco Wettstein & \today\\
+\end{tabularx}
+
+%% Fragen
+\begin{questions}
+  \question
+  Grundlagen zu Laufzeitkomplexität
+	\begin{parts}
+		\part Nennen Sie ein paar Grössen, von welchen das Laufzeitverhalten eines Algorithmuses abhängen kann
+		\begin{solutionordottedlines}[2cm]
+		\end{solutionordottedlines}
+
+		\part Wie werden bestehende Abhängigkeiten zwischen der Problemgrösse $n$ und der Laufzeit $t$ eines Algorithmuses angegeben?
+		\begin{solutionordottedlines}[2cm]
+		\end{solutionordottedlines}
+
+		\part Welche Einflüsse, abgesehen vom Algorithmus, können sich auf die Laufzeit auswirken?
+		\begin{solutionordottedlines}[2cm]
+		\end{solutionordottedlines}
+
+		\part Erklären Sie die 90/10 Regel in eigenen Worten
+		\begin{solutionordottedlines}[2cm]
+		\end{solutionordottedlines}
+
+		\part Ist ein Algorithmus der ein Problem in linearer Zeit löst immer (d.\,h. für jede Eingabe) schneller als ein Algorithmus der dasselbe Problem in exponentieller Zeit bew ltigt? Begründen Sie ihre Antwort.
+		\begin{solutionordottedlines}[2cm]
+		\end{solutionordottedlines}
+	\end{parts}
+
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\question
+	Landau Notation
+	
+	\begin{parts}
+	  //
+		\begin{solutionordottedlines}[2cm]
+		Falsch, weil $F \in \mathcal{O}(G)$ und $G \in \mathcal{O}(2^{2^x})$ somit $F \in \mathcal{O}(2^{2^x})$
+		\end{solutionordottedlines}
+		
+		\part $F \in \mathcal{O}(2^x)$
+		\begin{solutionordottedlines}[2cm]
+		Falsch, denn über $F$ ist nur bekannt, dass es nicht wesentlich schneller wächst als $2^{2^x}$. $F$ kann (muss aber nicht) schneller wachsen als $2^x$
+		\end{solutionordottedlines}
+
+		\part $G \notin \mathcal{O}(1)$
+		\begin{solutionordottedlines}[2cm]
+		Keine Aussage möglich. $G$ wächst zwar nicht wesentlich schneller als $2^{2^x}$, eine \enquote {untere Schranke} ist aber nicht gegeben. $G$ könnte also auch konstant sein. ($\mathcal{O}(1) \in \mathcal{O}(2^{2^x}$)
+		\end{solutionordottedlines}
+
+		\part $\mathcal{O}(F) \subseteq \mathcal{O}(G)$
+		\begin{solutionordottedlines}[2cm]
+		Ja, das kann durchaus so sein.
+		\end{solutionordottedlines}
+	
+	\end{parts}
+
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\question Diamant
+	\begin{parts}
+		\part Erstellen Sie einen Algorithmus, der ein gegebenes, zweidimensionales mit \texttt{char[][]} - Array mit dem Muster eines auf der Kante stehenden Rechtecks füllt. Das Rechteck soll mit * und ohne Verwendung von Graphikbibliotheken gezeichnet werden.
+		\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+		  \hline
+		  & & & &*& & & & \\\hline
+		  & & &*& &*& & & \\\hline
+		  & &*& & & &*& & \\\hline
+		  &*& & & & & &*& \\\hline
+		 *&*&*&*&*&*&*&*&* \\\hline
+		  &*& & & & & &*& \\\hline
+		  & &*& & & &*& & \\\hline
+		  & & &*& &*& & & \\\hline
+		  & & & &*& & & & \\\hline
+		\end{tabular}
+		\end{center}
+		
+		Das Ihnen übergebene Array ist von der Dimension $n \times n$, wobei $n$ eine ungerade Zahl ist, die in der Grösse variieren kann.Das Array ist
+		an jeder Stelle bereits mit \textvisiblespace (Leerzeichen) vorinstalliert.
+		
+		Erstellen Sie einen möglchen schnellen Algorithmus und führen Sie eine Feinanalyse durch.
+		
+		Vergleichen Sie Ihre Resultate mit denen anderer Studenten. Stellen Sie den Zusammenhang von Arraygrösse zur Lufzeit Ihres Algorithmus graphisch dar. Präsentieren Sie Ihre Analyse in der Übungsstunde.
+		
+		\begin{solutionordottedlines}[2cm]
+		Das Programm in Coffee-Script:
+		\begin{lstlisting}
+half = (n-1)/2
+
+for x:= 0 to half
+  matrix[x, half] = "x"
+  matrix[x, half + x] = "x"
+  matrix[x, half - x] = "x"
+  opposite = n - x - 1
+  matrix[opposite, half] = "x"
+  matrix[opposite, half + x] = "x"
+  matrix[opposite, half - x] = "x"
+end
+
+\end{lstlisting}
+Analyse:\\
+(Z = Zuweisung (1.0), AS = Addition/Subtraktion (1.4), M = Multiplikation (2.3), D = Division (8.0), V = Vergleich inkl. Sprung (1.5), I = Indizierung (4.2)) 
+\begin{center}
+\begin{tabular}{llll}
+ \toprule
+ \multicolumn{1}{c}{\textbf{Anweisung}} & \multicolumn{1}{c}{\textbf{Anzahl}} & \multicolumn{1}{c}{\textbf{Schritte}} \\\midrule
+ \texttt{half = (n - 1) / 2} & 1 & 1 Z, 1 AS, 1 D\\\hline
+ \texttt{for x:= 0 to half} & $n/2$ & $n/2$ V \\\hline
+ \texttt{matrix[x, half] = "x"} & $n/2$ & $n/2$ (Z + I) \\\hline
+ \texttt{matrix[x, half + x] = "x"} & $n/2$ & $n/2$ (Z + I + AS) \\\hline
+ \texttt{matrix[x, half - x] = "x"} & $n/2$ & $n/2$ (Z + I + AS) \\\hline
+ \texttt{oposite = n - x -1} & $n/2$ & $n/2$ (Z + AS + AS) \\\hline
+ \texttt{matrix[opposite, half] = "x"} & $n/2$ & $n/2$ (Z + I) \\\hline
+ \texttt{matrix[opposite, half + x] = "x"} & $n/2$ & $n/2$ (Z + I + AS) \\\hline
+ \texttt{matrix[opposite, half - x] = "x"} & $n/2$ & $n/2$ (Z + I + AS) \\\hline
+ \texttt{end} & & & \\\bottomrule
+\end{tabular}
+\end{center}
+Der Algorithmus wächst um den Faktor $n/2$ das heisst linear.
+		\end{solutionordottedlines}
+		
+      \end{parts}
+      
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\question
+	Fibonacci reloaded
+	
+	Benutzen Sie Ihren Algorithmus zur Berechnung der Fibonacci Folge, um die Summe aller Folgenglieder, die kleiner als 4\,000\,000 und gerade Zahlen sind zu berechnen.
+	\begin{solutionordottedlines}[2cm]
+	Nicht berechnet
+	\end{solutionordottedlines}
+		
+	
+\end{questions}
+
