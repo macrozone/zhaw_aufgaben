@@ -42,7 +42,7 @@
 
 \hypersetup{
 	pdfauthor   = {Constantin Lazari, Marco Wettstein (BA Informatik 2012, Zürich)},
-	pdftitle    = {Informatik II: Übung 6},
+	pdftitle    = {Informatik III: Übung 1},
 	pdfsubject  = {Informatik Basiswissen},
 	pdfkeywords = {},
 	pdfcreator  = {Kile},
@@ -56,15 +56,15 @@
 %% Exam Settings
 \pagestyle{headandfoot}
 %\firstpageheader{Benutzer/innen im Umgang mit Informatikmitteln instruieren}{}{Lernkontrolle 1}
-\firstpageheader{Informatik II (2013)}{}{Übung 6}
+\firstpageheader{Informatik III (2013)}{}{Übung 1}
 \firstpageheadrule
 
 %\runningheader{Benutzer/innen im Umgang mit Informatikmitteln instruieren}{}{Lernkontrolle 1}
-\runningheader{Informatik II}{}{
+\runningheader{Informatik III}{}{
 \ifprintanswers
-  Lösung Übung 6
+  Lösung Übung 1
 \else
-  Übung 6
+  Übung 1
 \fi
 }
 \runningheadrule

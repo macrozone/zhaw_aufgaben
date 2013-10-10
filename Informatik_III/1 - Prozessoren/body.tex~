@@ -7,10 +7,29 @@
 %% Fragenh
 \begin{questions}
   \question
-  Beispiele für klassische Prozessoren sind: Intel 4004, Intel 8008, Intel 8088, Intel 8086, Intel 80286, Intel 80386, Motorola 68000, Z80, MOS6502, PowerPC 970, PDP-11, CDP1802
+  Beispiele für klassische Prozessoren sind: Intel 4004, Intel 8008, Intel 8088, Intel 8086, Intel 80286, Intel 80386, Motorola 68000, Z80, MOS
+6502, PowerPC 970, PDP-11, CDP1802
 	\begin{parts}
 		\part Geben Sie das Erscheinungsjahr sowie die intern verwendeten Wortbreite an
 		\begin{solutionordottedlines}[2cm]
+		\begin{center}
+		\begin{tabular}{lrr}
+		\multicolumn{1}{c}{\textbf{Prozessor}} & \multicolumn{1}{c}{\textbf{Jahr}} & \multicolumn{1}{c}{\textbf{Wortbreite}}\\
+		\midrule
+		Intel 4004 & & \\\hline
+		Intel 8008 & & \\\hline
+		Intel 8088 & & \\\hline
+		Intel 8086 & & \\\hline
+		Intel 80286 & & \\\hline
+		Intel 80386 & & \\\hline
+		Motorola 68000 & & \\\hline
+		Z80 & & \\\hline
+		MOS 6502 & & \\\hline
+		PowerPC 970 & & \\
+		PDP-11 & & \\\hline
+		CDP1802 & & \\\hline
+		\end{tabular}
+		\end{center}
 		\end{solutionordottedlines}
 
 		\part Wie viele verschiedene Befehle können damit dargestellt werden?
@@ -25,14 +44,14 @@
    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	%\pagebreak
 	\question
-	Der ?Pufferüberlauf? gehört zu den häufigsten Sicherheitslücken in Programmen (mit Computern mit der Von-Neumann-Architektur).
+	Der \enquote{Pufferüberlauf} gehört zu den häufigsten Sicherheitslücken in Programmen (mit Computern mit der Von-Neumann-Architektur).
 	
 	  \begin{parts}
 	  \part Beschreiben Sie kurz informell, warum die klassische HarvardArchitektur besser gegen diesen schützt (gegenüber der VonNeumann-Architektur).
 	  \begin{solutionordottedlines}[2cm]
 	  \end{solutionordottedlines}
 
-	  \part Ist Ihre Argumentation auch bei der Super-Harvard-Architekturallgemein korrekt?
+	  \part Ist Ihre Argumentation auch bei der Super-Harvard-Architektur allgemein korrekt?
 	  \begin{solutionordottedlines}[2cm]
 	  \end{solutionordottedlines}
 
@@ -44,31 +63,24 @@
 	Wortbreiten
 
 	\begin{parts}
-	\part Kann ein Prozessor mit geringer Wortbreite auch Werte (bzw. Worte) 
-berechnen, die breiter sind? Zum Beispiel ein Prozessor mit 8-BitWortbreite auch 16- oder 32-Bit-Wörter. Falls ja, wie könnte ein 
-solches Verfahren aussehen?
+	\part Kann ein Prozessor mit geringer Wortbreite auch Werte (bzw. Worte) berechnen, die breiter sind? Zum Beispiel ein Prozessor mit 8-BitWortbreite auch 16- oder 32-Bit-Wörter. Falls ja, wie könnte ein solches Verfahren aussehen?
 	\begin{solutionordottedlines}[2cm]
 	\end{solutionordottedlines}
 	
 	\end{parts}
+	
 	\question Architektur
 	
-	\part 
 	\begin{parts}
-	\part Wieso können der Motorola 68000 und die Intel-Prozessoren 8088, 
-8086 und 80286 mehr als 65 KB Hauptspeicher adressieren? 
+	\part Wieso können der Motorola 68000 und die Intel-Prozessoren 8088, 8086 und 80286 mehr als 65 KB Hauptspeicher adressieren? 
 	\begin{solutionordottedlines}[2cm]
 	\end{solutionordottedlines}
 	
-	\part Was unterscheidet den Motorola 68000 von der Architektur des Intel
-x86? Welche Vor- und Nachteile ergeben sich daraus?
+	\part Was unterscheidet den Motorola 68000 von der Architektur des Intel x86? Welche Vor- und Nachteile ergeben sich daraus?
 	\begin{solutionordottedlines}[2cm]
 	\end{solutionordottedlines}
 	
 	\end{parts}
-
-	
-
 
 \end{questions}
 
