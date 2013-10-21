@@ -37,9 +37,9 @@
 		 \item Beschreibung von Funktionen
 		 \item Befehlssequenz
 		\end{enumerate}
-
 		\end{solutionordottedlines}
 
+		\pagebreak
 		\part Überarbeiten Sie Ihre erste Version des Begriffs Algorithmus und erstellen Sie ihre eigene Definition.
 		\begin{solutionordottedlines}[2cm]
 		 Ein Algorithmus ist eine endliche formale Beschreibung von Funktionen oder Operationen, die aus elementaren Anweisungen oder Konstrukten besteht.
@@ -62,24 +62,35 @@
 	\begin{parts}
 		\part Stellen Sie den Algorithmus graphisch dar
 		\begin{solutionordottedlines}[2cm]
-		
+		Als Struktogramm:\\
 \nassiwidth =\columnwidth \setiftext {J}{N}
 \STRUCT { Fibonacci Sequenz }{ Mathematischer Algorithmus }{
   \ACTION{Einlesen von $n$ (die $n$-te Fibonacci-Zahl)}
-  \WHILE{$n > 2$}{
-    \ACTION{Gebe zurück: Fibonacci Sequenz mit $n - 1$}
-  }
-  \ACTION{Gebe zurück: 1}
+  \IF{$n > 2$}
+    \THEN{\ACTION{Gebe zurück:\\Fibonacci Sequenz mit $n-1$\\+ Fibonacci Sequenz mit $n-2$}}
+    \ELSE{\ACTION{Gebe zurück: 1}}
+  \ENDIF
 }
+
 
 		\end{solutionordottedlines}
 		
 		\part Geben Sie eine text-basierte Darstellung Ihres Algorithmus an.
 		\begin{solutionordottedlines}[2cm]
+		Algorithmus: Fibonacci Sequenz ($n$):
+		\begin{enumerate}
+		 \item Falls $n > 2$: Gebe Fibonacci Sequenz $(n-1)$ + Fibonacci Sequenz $(n-2)$ zurück.
+		 \item Sonst: Gebe 1 zurück.
+		\end{enumerate}
+
 		\end{solutionordottedlines}
 
 		\part Diskutieren Sie die Vor- und Nachteile der verschiedenen Darstellungsformen.
 		\begin{solutionordottedlines}[2cm]
+		Ein Vorteil der graphischen Darstellung ist, dass sie eben graphisch ist. D.h. man kann mit dem Finger die Instruktionen lang fahren, und sieht, unter welchen Bedingungen man wo landet.\\
+		Der Nachteil ist, dass eine Darstellung als Struktogramm beispielsweise bei verschachtelten Wenn-Dann-Bedingungen schnell sehr \enquote{hässlich} und unübersichtlich werden kann. Andererseits sind verschachtelte Wenn-Dann-Bedingungen grundsätzlich sowieso zu vermeiden, weil dann der Algorithmus mehr als ein Problem gleichzeitig löst.
+
+		Der Vorteil der Text-Darstellung ist, dass sie sehr leicht lesbar ist. Ein Nachteil entsteht (wie bei der graphischen Darstellung) erst, wenn der Algorithmus sehr komplex wird und im Prinzip mehr als eine Aufgabe gleichzeitig erledigt. (Beispielsweise entscheiden, ob ein Wert grösser ist als ein anderer und anschliessend aufgrund dessen etwas unternimmt.) 
 		\end{solutionordottedlines}
 	\end{parts}
 
@@ -88,18 +99,25 @@
 	\begin{parts}
 		\part Welche Datenobjekte haben Sie für Ihren Algorithmus eingesetzt?
 		\begin{solutionordottedlines}[2cm]
+		\begin{enumerate}
+			\item Elementarer Datentyp: Integer
+			\item Strukturierter Datentyp: Funktion
+		\end{enumerate}
 		\end{solutionordottedlines}
 		
 		\part Handelt es sich um elementare oder strukturierte?
 		\begin{solutionordottedlines}[2cm]
+		Sowohl als auch (siehe Antwort a)
 		\end{solutionordottedlines}
 
 		\part Konstanten oder Variablen?
 		\begin{solutionordottedlines}[2cm]
+			Beides sind Konstanten, die ihren Wert während eines Durchlaufs nicht verändern.
 		\end{solutionordottedlines}
 	
 		\part Diskutieren Sie ihre Gedanken in der Gruppe.
 		\begin{solutionordottedlines}[2cm]
+		Es stellt sich die Frage, ob eine Funktion ein Datentyp ist. Aus Sicht eines Computers in jedem Fall, da es sich auch bei Funktionen letztlich auch Daten (wenn auch komplexe und mit integrierter Logik) handelt.
 		\end{solutionordottedlines}
       \end{parts}
       
@@ -110,11 +128,36 @@
 		\part Implementieren Sie den Algorithmus. Jedoch nicht ihren eigenen, sondern den einer anderen Gruppe.
 		Nutzen Sie hierzu die erarbeite Darstellung des Algorithmus der anderen Gruppe.
 		\begin{solutionordottedlines}[2cm]
+		\begin{lstlisting}[language=Java]
+/**
+ * Calculate Fibonacci-Numbers
+ */
+public class FibonacciLoop {
+
+	/**
+	 * Calculates the Fibonacci-Number at the given position.
+	 * @param position Position of the Fibonacci-Number
+	 * @return The value of the Fibonacci-Number at the specified position.
+	 */
+	public static int get(final int position) {
+		int current = 1;
+		int previous = 1;
+		for(int index = 3; index <= position; ++index) {
+			final int temp = current + previous;
+			previous = current;
+			current = temp;
+		}
+		return current;
+	}	
+}
+		\end{lstlisting}
 		\end{solutionordottedlines}
 		
 		\part Falls Ihr Programm nicht oder nicht korrekt läuft, dann diskutieren Sie mit der Gruppe von welcher Sie den Algorithmus erhalten haben,
 		was dier Ursache der Fehler sein könnte.
 		\begin{solutionordottedlines}[2cm]
+		Läuft korrekt für ganzzahlige Werte > 0. Wird allerdings für grosse $n$ sehr langsam.
+		Problem: Unzulässige Eingaben werden nicht abgefangen.
 		\end{solutionordottedlines}
 
 	\end{parts}
