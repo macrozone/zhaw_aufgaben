@@ -1,0 +1,44 @@
+\pagebreak
+\question
+Das Steuerwerk eines Rechners dekodiert die Befehle aus dem OP-Code bzw. dem Maschinencode; für Benutzer sind Befehle mit mnemonische Symbolen leichter zu lesen (und schreiben). Gehen Sie
+vom Befehlssatz für den \enquote{Mini-Power-PC} aus.
+\begin{parts}
+\part
+Geben Sie für die folgenden Befehle mit mnemonische Symbolen den Maschinencode an: 
+\begin{itemize}
+	\item LWDD 1, \#240
+	\item ADDD \#62
+	\item Not
+	\item BCD \#15
+\end{itemize}
+
+\begin{solutionordottedlines}[2cm]
+\begin{itemize}
+	\item LWDD 1, \#240 $\mapsto$ 01000101 10100100
+	\item ADDD \#62 $\mapsto$ 10000000 00111110
+	\item Not $\mapsto$ 00000000 10000000
+	\item BCD \#15 $\mapsto$ 00111000 00001111
+\end{itemize}
+\end{solutionordottedlines}
+%%% Next subquestion
+
+\part
+\enquote{Dekodieren} Sie die folgenden Befehle in Maschinencode so weit es möglich ist (mnemonische Symbol und Beschreibung):
+\begin{itemize}
+	\item 00011111 11101111
+	\item 01011010 00000000
+	\item 00001011 00011010
+	\item 01100001 11110110
+\end{itemize}
+
+\begin{solutionordottedlines}[2cm]
+\begin{itemize}
+	\item 00011111 11101111 $\mapsto$ BC R3; (Falls Carry-Flag gesetzt, verzweige zur Adresse von Register 3)
+	\item 01011010 00000000 $\mapsto$ LWDD R3, \#512; (Lade den Wert an Adresse 512 in das Register 3)
+	\item 00001011 00011010 $\mapsto$ OR R2; (Führe eine OR-Verknüpfung zwischen dem Akku und Register 2 aus)
+	\item 01100001 11110110 $\mapsto$ SWDD R0, \#502; (Speichere den Wert aus Register 0 (=Akku) an die Speicheradresse 502)
+\end{itemize}
+\end{solutionordottedlines}
+%%% Next subquestion
+
+\end{parts}

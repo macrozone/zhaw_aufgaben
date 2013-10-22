@@ -1,0 +1,24 @@
+\pagebreak
+\question
+Der Befehlssatz für den „Mini-Power-PC“ ist sehr klein / eingeschränkt. Sie
+haben gelernt, dass Zugriffe auf den Arbeitsspeicher sehr langsam sind
+(zum Teil deutlich mehr als 100 Zyklen).
+\begin{parts}
+\part
+Welchen Befehlstyp würden Sie auf jeden Fall ergänzen, um die Code-Ausführung erheblich zu beschleunigen?
+\begin{solutionordottedlines}[2cm]
+Befehle, um häufig benötigte Werte temporär zwischenzulagern, also z.\,B. in ein unbenutztes Register zu verschieben (Register $a \rightarrow$ Register $b$).
+\end{solutionordottedlines}
+%%% Next subquestion
+
+\part
+Kann mit dem Befehlssatz ein Arbeitsspeicher von 16 KiB genutzt werden? Antwort bitte begründen.
+\begin{solutionordottedlines}[2cm]
+Nein, den Befehlen \texttt{LWDD} und \texttt{SWDD} stehen nur 10 Bit zur Adressierung des Speichers zur Verfügung. 10 Bit erlauben als nur 1\,024 Speicheradressen.
+
+Mittels indirekter Adressierung (z.B. via eines 16-Bit Registers), wäre es möglich. Der Befehle müsste dann allerdings von der Form LWDD Rin, Rout sein. Gleiches gilt für SWDD. 
+% Solution goes here
+\end{solutionordottedlines}
+%%% Next subquestion
+
+\end{parts}

@@ -1,18 +1,17 @@
-\usepackage[utf8]{inputenc}
+\usepackage[ansinew]{inputenc}
 \usepackage[pdftex]{graphicx} 
 \usepackage{microtype}
 \usepackage[pdfborder={0 0 0}, plainpages=false, pdfpagelabels]{hyperref} 
 \usepackage[ngerman]{babel}
 \usepackage[babel]{csquotes}
 \usepackage{tabularx}
-\usepackage{amssymb,amsmath,amsthm,mathtools}
-\usepackage{booktabs}
 
 \usepackage{lmodern} %Type1-Schriftart fuer nicht-englische Texte
 \hyphenation{eine einer eines} % Trennung von eine, einer, eines vermeiden
 
 \usepackage{color}
 \usepackage{stmaryrd}
+\usepackage{nassi}
 
 %% Listings %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\usepackage{verbatim}
@@ -20,16 +19,26 @@
 \lstloadlanguages{Java}
 {\lstset{%
   basicstyle=\footnotesize\ttfamily,
+  commentstyle=\slshape\color{green!50!black},
+  keywordstyle=\bfseries\color{blue!50!black},
+  identifierstyle=\color{blue},
+  stringstyle=\color{orange},
+  escapechar=\#,
+  emphstyle=\color{red}}
+}
+{
+  \lstset{%
+    basicstyle=\ttfamily,
     keywordstyle=\bfseries,
     commentstyle=\itshape,
     escapechar=\#,
-  emphstyle=\color{red},
-  breaklines=true
+    emphstyle=\bfseries\color{red}
+  }
 }
 
 \hypersetup{
-	pdfauthor   = {Constantin Lazari, Marco Wettstein (BA Informatik 2012, ZÃ¼rich)},
-	pdftitle    = {Algorithmen und Datenstrukturen: Ãœbung 3},
+	pdfauthor   = {Constantin Lazari, Marco Wettstein (BA Informatik 2012, Zürich)},
+	pdftitle    = {Algorithmen und Datenstrukturen: Übung 1},
 	pdfsubject  = {Informatik},
 	pdfkeywords = {},
 	pdfcreator  = {Kile},
@@ -43,15 +52,15 @@
 %% Exam Settings
 \pagestyle{headandfoot}
 %\firstpageheader{Benutzer/innen im Umgang mit Informatikmitteln instruieren}{}{Lernkontrolle 1}
-\firstpageheader{Algorithmen und Datenstrukturen (2013)}{}{Ãœbung 3}
+\firstpageheader{Algorithmen und Datenstrukturen (2013)}{}{Übung 1}
 \firstpageheadrule
 
 %\runningheader{Benutzer/innen im Umgang mit Informatikmitteln instruieren}{}{Lernkontrolle 1}
 \runningheader{Algorithmen und Datenstrukturen (2013}{}{
 \ifprintanswers
-  LÃ¶sung Ãœbung 3
+  Lösung Übung 1
 \else
-  Ãœbung 3
+  Übung 1
 \fi
 }
 \runningheadrule
@@ -65,7 +74,7 @@
 \pointsinrightmargin
 \pointpoints{Punkt}{Punkte}
 \bonuspointpoints{Bonuspunkt}{Bonuspunkte}
-\renewcommand{\solutiontitle}{\noindent\textbf{LÃ¶sung:}\par\noindent}
+\renewcommand{\solutiontitle}{\noindent\textbf{Lösung:}\par\noindent}
 
 \CorrectChoiceEmphasis{\bfseries}
 \renewcommand\choicelabel{$\boxempty$}
