@@ -1,0 +1,45 @@
+\question
+Gegeben sei der Befehlssatz für den \enquote{Mini-Power-PC}. Die Aufgabe Summe = $a + 4 * b + 8 * c$ soll über ein Programm für den \enquote{Mini-Power-PC} berechnet werden.
+\begin{parts}
+\part
+Schreiben Sie den Programm-Code mit mnemonische Symbolen (in Assembler) 
+\begin{solutionordottedlines}[2cm]
+100 LWDD R0 200
+101 SLA
+102 B
+\end{solutionordottedlines}
+%%% Next subquestion
+
+\part
+Übersetzen Sie den Code in Maschinencode
+\begin{solutionordottedlines}[2cm]
+% Solution goes here
+\end{solutionordottedlines}
+%%% Next subquestion
+
+\part
+Berechnen Sie mit Hilfe Ihres Programms:
+\begin{itemize}
+	\item Summe für $a = 14, b = 7$ und $c = 66$
+	\item Summe für $a = 25, b = -14$ und $c = -123$
+	\item Summe für $a = -125, b = 10\,000$ und $c = 16$
+	\item Summe für $a = 1\,000, b = 10\,000$ und $c = -2\,000$
+\end{itemize}
+Anmerkungen:
+\begin{itemize}
+	\item Das Programm beginnt in der Speicherzelle 100, die Variablen a, b und c liegen in den Speicherzellen 200 / 201 (für a), 202 / 203 (für b) und 204 / 205 (für c).
+	\item Am Ende des Programm soll die Summe in der Speicherzelle 206 / 207 stehen. Bei einem Überlauf soll das Programm abgebrochen werden.
+	\item Sie können selbstverständlich den Emulator der Aufgabenserie 3b für die Verifizierung und Berechnung nutzen - er könnte auch als \enquote{Debugger} sehr hilfreich sein \dots
+\end{itemize}
+
+
+\begin{solutionordottedlines}[2cm]
+\begin{itemize}
+	\item Summe für $a = 14, b = 7$ und $c = 66$
+	\item Summe für $a = 25, b = -14$ und $c = -123$
+	\item Summe für $a = -125, b = 10\,000$ und $c = 16$
+	\item Summe für $a = 1\,000, b = 10\,000$ und $c = -2\,000$
+\end{itemize}
+\end{solutionordottedlines}
+
+\end{parts}

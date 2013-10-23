@@ -9,22 +9,28 @@
   \question
   Nochmal Komplexität
 	\begin{parts}
-		\part Vergleichen Sie das Wachstum untenstehender Programme und geben Sie diese in der
+		\part Vergleichen Sie das Wachstum untenstehender Programme und geben Sie diese in der
+
 Landau-Notation an.
 	 \begin{lstlisting}
-while x < n do
-  x := x + 1
-  n := n - 1
+while x < n do
+  x := x + 1
+  n := n - 1
 end
 	 \end{lstlisting}
 
 	 \begin{lstlisting}
-while x < n do
-n := n / 2
-x := 2 * x
+while x < n do
+	n := n / 2
+	x := 2 * x
 end
 	 \end{lstlisting}
 
+	 \begin{solutionordottedlines}
+	 	Beide sind Element von $\mathcal{O}(n)$
+	 \end{solutionordottedlines}
+
+	 
 	\end{parts}
 
    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -34,37 +40,40 @@ end
 	Implementieren Sie den Datentyp einer einfach verketteten Liste (mit integer Datenfeldern). Die Listen sollen folgende Funktionalitäten aufweisen:
 	
 	\begin{itemize}
-	\item  Das erste Element der Liste auslesen.
-	\item Das letzte Element der Liste auslesen.
-	\item Ein Objekt am Anfang der Liste hinzufügen.
-	\item Ein Objekt am Schluss der Liste hinzufügen.
+	\item  Das erste Element der Liste auslesen.
+	\item Das letzte Element der Liste auslesen.
+	\item Ein Objekt am Anfang der Liste hinzufügen.
+	\item Ein Objekt am Schluss der Liste hinzufügen.
 	\item Anzahl Elemente der Liste zurückgeben.
 	\item Mit einer anderen Liste vergleichen.
 	\item Abfragen ob ein bestimmtes Objekt in der Liste vorkommt.
 	\end{itemize}
 
 	\begin{solutionordottedlines}[2cm]
-	Falsch, weil $F \in \mathcal{O}(G)$ und $G \in \mathcal{O}(2^{2^x})$ somit $F \in \mathcal{O}(2^{2^x})$
+	\lstinputlisting{algorithmen_s3/src/IntegerList.java}[language=Java]
 	\end{solutionordottedlines}
 		
 
    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \pagebreak
 	\question Menge
 	
 	Benutzen Sie Ihre Implementation von Listen aus der ersten Aufgabe und implementieren Sie den Datentyp einer Menge mit folgenden Funktionalitäten:
 	
 	\begin{itemize}
-	 \item Abfrage ob ein bestimmtes Element zur Menge gehört.
-	 \item Die Menge als String von der Form fx1, x2, . . .g zurückgeben.
-	  \item Ein Element hinzufügen.
-	  \item Mit einer anderen Menge vereinigen.
-	  \item mit einer anderen Menge schneiden.
-	  \item Anzahl Elemente der Menge abfragen. Beachten Sie, dass mehrfach vorkommende Elemente nur einmal gezählt werden sollen.
-	  \item Mit einer anderen Menge vergleichen. Beachten Sie, dass beim Vergleich vonMengen die Reihenfolge und Wiederholungen keine Rolle spielen.
+	 \item Abfrage ob ein bestimmtes Element zur Menge gehört.
+	 \item Die Menge als String von der Form fx1, x2, . . .g zurückgeben.
+	  \item Ein Element hinzufügen.
+	  \item Mit einer anderen Menge vereinigen.
+	  \item mit einer anderen Menge schneiden.
+	  \item Anzahl Elemente der Menge abfragen. Beachten Sie, dass mehrfach vorkommende Elemente nur einmal gezählt werden sollen.
+	  \item Mit einer anderen Menge vergleichen. Beachten Sie, dass beim Vergleich von
+Mengen die Reihenfolge und Wiederholungen keine Rolle spielen.
 	\end{itemize}
 
 	
 	\begin{solutionordottedlines}[2cm]
+	\lstinputlisting{algorithmen_s3/src/IntegerSet.java}[language=Java]
 	\end{solutionordottedlines}
 		
 		
