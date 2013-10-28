@@ -1,0 +1,11 @@
+\pagebreak
+\question
+Die häufigste Speichertechnologiefür den Arbeitsspeichersind aktuell noch DRAMs. Ein Nachteil der DRAM-Technologie ist u.\,a. der häufig erforderliche Refresh.
+
+Zeigen Sie anhand der beigefügten schematischen Skizze einer einzelnen DRAM-Zelle, warum ein Refresh erforderlich ist und wie dieser abläuft.
+\begin{solutionordottedlines}[2cm]
+\begin{center}
+	\includegraphics[width=\linewidth]{Refresh_Reason.png}
+\end{center}
+
+\end{solutionordottedlines}

@@ -1,0 +1,52 @@
+\question
+Die Zugriffszeiten unterschiedlicher Speicherarten beeinflussen erheblich die Leistung aktueller Computer bzw. Prozessoren.
+\begin{parts}
+\part
+Recherchieren Sie aktuellen Werte für die Zugriffszeiten in Rechnern (Lesen und Schreiben) für:
+\begin{itemize}
+	\item SRAM (1st-Level-Cache)
+	\item DRAM (Arbeitsspeicher)
+	\item Festplatten (Massenspeicher) und 
+	\item Solid State Disks (als Massenspeicher)
+\end{itemize}
+(Bitte mit Quellenangabe belegen)
+
+
+\begin{solutionordottedlines}[2cm]
+\begin{center}
+\begin{tabular}{p{4cm}rp{3cm}}
+	\toprule
+	\multicolumn{1}{c}{\textbf{Speicher}} & \multicolumn{1}{c}{\textbf{Zugriffszeit}} & \multicolumn{1}{c}{\textbf{Quelle}}\\
+	\midrule
+	SRAM & 0.5 ns & \href{http://surana.wordpress.com/2009/01/01/numbers-everyone-should-know/}{wordpress.com}\\\hline
+	DRAM & 10 -- 15 ns & \href{http://en.wikipedia.org/wiki/DDR3_SDRAM}{wikipedia.org}\\\hline
+	Festplatte (HGST Ultrastar 7K3000 3 TB) & S: 5000 ns, L: 9000 ns & \href{http://www.chip.de/artikel/HGST-Ultrastar-7K3000-3-TB-HUA723030ALA640-SATA-Festplatte-3-5-Zoll-Test_63041861.html}{chip.de}\\\hline 
+	SSD (Samsung SSD 840 EVO 1 TB) &  S: 23 ns, L: 31 ns & \href{http://www.chip.de/artikel/Samsung-840-EVO-1-TB-MZ-7TE1T0BW-SSD-Test_63269603.html}{chip.de}\\
+	\bottomrule
+\end{tabular}
+\end{center}
+\textit{S: schreiben, L: lesen}\\
+Man stellt fest: Schreiben geht schneller als lesen!\\
+Anmerkung: Im PDF sind die Links anklickbar und führen auf den Artikel.
+\end{solutionordottedlines}
+%%% Next subquestion
+
+\part
+Was sind die Vorteile und Nachteile der DDR(x)-SDRAMSpeicherbausteine (x steht für leer, 2und 3) gegenüber klassischen DRAM-Bausteinen?
+\begin{solutionordottedlines}[2cm]
+\begin{description}
+	\item [DDR-SDRAM] Datenbit wird bei auf und absteigender Flanke des Takt\-signals übertragen, statt nur bei einer Flanke wie beim SDRAM
+	\begin{itemize}
+		\item [$+$] theoretisch doppelte Datenrate
+		\item [$+$] niedrige Betriebsspannung/geringer Stromverbrauch
+		\item [$-$] Anzahl zusammenhängender Daten bei einer Anfrage muss mindestens so lang sein wie die doppelte Busbreite, ansonsten kann Geschwindigkeitsvorteil nicht erreicht werden
+		\item [$-$] Address- und Steuersignale werden nur bei einer Taktflanke über\-tragen
+ 	\end{itemize}
+	\item [DDR2] Vierfach-Prefetch statt zweifach
+	\item [DDR3] Achfach-Prefetch statt zweifach
+\end{description}
+
+\end{solutionordottedlines}
+%%% Next subquestion
+
+\end{parts}
