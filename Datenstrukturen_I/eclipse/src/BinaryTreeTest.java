@@ -89,8 +89,8 @@ public class BinaryTreeTest {
 		assertEquals(6, tree.getMinTree().getValue().intValue());
 		tree.addValue(4);
 		assertEquals(6, tree.getMinTree().getValue().intValue());
-		tree.addValue(3);
-		assertEquals(3, tree.getMinTree().getValue().intValue());
+		tree.addValue(7);
+		assertEquals(7, tree.getMinTree().getValue().intValue());
 	}
 
 	@Test
