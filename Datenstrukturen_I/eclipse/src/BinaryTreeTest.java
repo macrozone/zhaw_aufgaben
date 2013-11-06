@@ -44,11 +44,13 @@ public class BinaryTreeTest {
 	@Test
 	public void testRemove() {
 		BinaryTree<Integer> tree = new BinaryTree<Integer>(5);
-		List<Integer> values = Arrays.asList(1,2,3,6,7,8,9);
+		List<Integer> values = Arrays.asList(1,2,3,6,7,8,9,3,6,12,3,5,1);
 		tree.addValue(values);
 		assertTrue(tree.contains(7));
+		System.out.println(tree);
 		tree.remove(7);
 		assertTrue(!tree.contains(7));
+		System.out.println(tree);
 	}
 
 	@Test

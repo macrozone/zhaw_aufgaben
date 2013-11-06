@@ -17,7 +17,7 @@ public class BinaryTree<T extends Comparable<T>> {
 
 	public void addValue(T value) {
 
-		if (value.compareTo(getValue()) <= 0) {
+		if (value.compareTo(getValue()) < 0) {
 			// goes left
 			if (left == null) {
 				left = new BinaryTree<T>(value);
@@ -100,10 +100,7 @@ public class BinaryTree<T extends Comparable<T>> {
 		if (left == null)
 			return right.getMinTree();
 
-		if (left.getDepth() > right.getDepth())
-			return left.getMinTree();
-		else
-			return right.getMinTree();
+		return right.getMinTree(); // prefer right
 	}
 
 	public boolean contains(T value) {
@@ -122,16 +119,14 @@ public class BinaryTree<T extends Comparable<T>> {
 
 	@Override
 	public String toString() {
-		String string = "{";
+		String string = "[";
+		string += " "+value.toString()+" ";
 		if (left != null)
 			string += left.toString();
-		string += ","+value.toString()+",";
 		if (right != null)
 			string += right.toString();
-
-		return string + "}";
+		return string + "]";
 
 	}
-
 
 }
