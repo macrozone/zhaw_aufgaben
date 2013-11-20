@@ -120,13 +120,69 @@ public class BinaryTree<T extends Comparable<T>> {
 	@Override
 	public String toString() {
 		String string = "[";
-		string += " "+value.toString()+" ";
+		string += " " + value.toString() + " ";
 		if (left != null)
 			string += left.toString();
 		if (right != null)
 			string += right.toString();
 		return string + "]";
 
+	}
+
+	public void balance() {
+
+		while (!isBalanced()) {
+			int leftDepth = left != null ? left.getDepth() : 0;
+			int rightDepth = right != null ? right.getDepth() : 0;
+
+			if (rightDepth + 1 < leftDepth) {
+
+				BinaryTree<T> newRight = new BinaryTree<>(getValue());
+
+				value = left.getValue();
+				if (left.left != null) {
+					newRight.left = left.right;
+					left = left.left;
+
+				} else {
+					left = left.right;
+				}
+				newRight.right = right;
+				right = newRight;
+
+			} else if (rightDepth > leftDepth + 1) {
+
+				BinaryTree<T> newLeft = new BinaryTree<>(getValue());
+
+				value = right.getValue();
+				if (right.right != null) {
+					newLeft.right = right.left;
+					right = right.right;
+
+				} else {
+					right = right.left;
+				}
+				newLeft.left = left;
+				left = newLeft;
+
+			}
+			if (left != null && !left.isBalanced())
+				left.balance();
+
+			if (right != null && !right.isBalanced())
+				right.balance();
+		}
+
+	}
+
+	public boolean isBalanced() {
+		int leftDepth = left != null ? left.getDepth() : 0;
+		int rightDepth = right != null ? right.getDepth() : 0;
+
+		if (Math.abs(leftDepth - rightDepth) <= 1)
+			return true;
+		else
+			return false;
 	}
 
 }
