@@ -3,9 +3,10 @@
 	last = a.length-1 unless last?
 	
 	n = last - first + 1
-	h = h_series h
+	h = 1
+	i = 0
 
-	while h > 0
+	while h < n
 		for i in [first..last-h]
 			e = a[i+h]
 			j = i
@@ -13,7 +14,8 @@
 				a[j+h] = a[j]
 				j = j-h
 			a[j + h] = e
-		h = h_series h
+		i++
+		h = h_series i,h
 
 
 

@@ -2,31 +2,43 @@
 	
 	if Meteor.isClient
 		running = false
-		tests = [@quicksort, @shellsort]
+		h1 = (i, h) -> Math.pow 2, i
+		h2 = (i, h) -> Math.pow(2, i)-1
+		h3 = (i, h) -> 3*h + 1
 		
-		Session.set "n", 1000
-		$chart = {}
-		
-
-
 		mesureTime = (n, algo) ->
 			data = @shuffle [0..n]
 			startTime = new Date().getTime()
 			algo data
 			endTime = new Date().getTime()
 			endTime - startTime
+
+		plots = [
+			{label: "quicksort", func:(n) => mesureTime n, @quicksort}
+			{label: "c * n * log(n)", func: (n) => 0.00001*n*Math.log n}
+	#		{label: "shellsort", func:(n) => mesureTime n, (n)-> @shellsort n, h1}
+	#		{label: "c * n^2", func:(n) => 0.00000001 * n*n}
+		#	(n) -> @shellsort n, h2
+		#	(n) -> @shellsort n, h3
+			]
+		
+		Session.set "n", 1000
+		$chart = {}
+		
+
+
+		
 		
 		runTest = (n) ->
 
 			chart = $chart.highcharts()
-			for algo, index in tests
-				t = mesureTime n, algo
-			
-				
+			for plot, index in plots
+				t = plot.func n
+				chart.addSeries {name: plot.label, data:[]} unless chart.series[index]?
+
 				chart.series[index].addPoint [n, t]
 			
-			chart.series[index].addPoint [n, 0.00001*n*Math.log n]
-			chart.series[index+1].addPoint [n, 0.000000001*n*n]
+		
 
 
 		run = ->
@@ -34,7 +46,7 @@
 				runTest Math.round Session.get "n"
 				Meteor.setTimeout ->
 					n = Session.get "n"
-					n *= 1.1
+					n *= 1.25
 					Session.set "n", n
 					run()
 				,100
@@ -67,12 +79,6 @@
 					min: 0
 					title:
 						text: "time taken in ms"
-				series: [
-					{name: 'quicksort', data: []}
-					{name: "shellsort", data: []}
-					{name: "c * n * log(n)", data: []}
-					{name: "c * n^2", data: []}
-
-				]
+				
 			
 		
