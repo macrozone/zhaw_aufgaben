@@ -1,0 +1,170 @@
+%% Einleitung
+
+\begin{tabularx}{\textwidth}{Xr}
+  Constantin Lazari, Marco Wettstein & \today\\
+\end{tabularx}
+
+%% Fragen
+\begin{questions}
+  \question
+  Ziel dieser Aufgabe ist, dass Sie sich untereinander austauschen, im Buch und Ihren Unterlagen nachschlagen und sich gedanklich mit der Definition eines Algorithmus auseinandersetzen.
+
+	\begin{parts}
+		\part Spontan und ohne Hilfsmittel: Schreiben Sie alleine auf, wie sie den Algorithmus-Begriff definieren würden.
+		\begin{solutionordottedlines}[2cm]
+		Ein Algorithmus ist eine vollständige Reihe von Arbeitsanweisungen, die aus einem definierten Input einen definierten Output erzeugt.
+
+		\end{solutionordottedlines}
+
+		\part Überlegen Sie sich welche Eigenschaften eienn Algorithmus ausmachen.
+		\begin{solutionordottedlines}[2cm]
+		Die Arbeitsansweisungen eines Algorithmuses müssen dabei folgende Kriterien erfüllen:
+		\begin{enumerate}
+		 \item Vollständigkeit: Die Anweisungen müssen jeden auszuführenden Schritt enthalten.
+		 \item Unmissverständlichkeit: Jede Arbeitsanweisung muss eindeutig interpretierbar sein.
+		 \item Machbarkeit: Jede Arbeitsanweisung muss ausführbar sein. Unmögliche Anweisungen sind unzulässig.
+		\end{enumerate}
+		\end{solutionordottedlines}
+
+		\part Diskutieren Sie Ihre Definition in der Gruppe.
+		\begin{solutionordottedlines}[2cm]
+		Gefallene Stichworte:
+		\begin{enumerate}
+		 \item Regelwerk mit Ein- und Ausgabe
+		 \item Kochrezept
+		 \item vollständige Anweisungen
+		 \item Verfahren zur Problemlösung
+		 \item Beschreibung von Funktionen
+		 \item Befehlssequenz
+		\end{enumerate}
+		\end{solutionordottedlines}
+
+		\pagebreak
+		\part Überarbeiten Sie Ihre erste Version des Begriffs Algorithmus und erstellen Sie ihre eigene Definition.
+		\begin{solutionordottedlines}[2cm]
+		 Ein Algorithmus ist eine endliche formale Beschreibung von Funktionen oder Operationen, die aus elementaren Anweisungen oder Konstrukten besteht.
+		\end{solutionordottedlines}
+
+		\part Vergleichen Sie ihre Definition mit den Unterlagen vom Theorieunterricht
+		\begin{solutionordottedlines}[2cm]
+		Ergänzende Eigenschaften:
+		\begin{itemize}
+		 \item Vollständigkeit: fraglich, ob Vollständigkeit nicht eher eine Relation zwischen Spezifikation und Algorithmus ist
+		 \item Machbarkeit: diskutabel. Es gibt Algorithmen für Quantencomputer, die in dieser Form (noch) nicht existieren.
+		\end{itemize}
+
+		\end{solutionordottedlines}
+	\end{parts}
+
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\question
+	Entwerfen Sie einen Algorithmus zur Berechnung der Fibonacci-Zahlen
+	\begin{parts}
+		\part Stellen Sie den Algorithmus graphisch dar
+		\begin{solutionordottedlines}[2cm]
+		Als Struktogramm:\\
+\nassiwidth =\columnwidth \setiftext {J}{N}
+\STRUCT { Fibonacci Sequenz }{ Mathematischer Algorithmus }{
+  \ACTION{Einlesen von $n$ (die $n$-te Fibonacci-Zahl)}
+  \IF{$n > 2$}
+    \THEN{\ACTION{Gebe zurück:\\Fibonacci Sequenz mit $n-1$\\+ Fibonacci Sequenz mit $n-2$}}
+    \ELSE{\ACTION{Gebe zurück: 1}}
+  \ENDIF
+}
+
+
+		\end{solutionordottedlines}
+		
+		\part Geben Sie eine text-basierte Darstellung Ihres Algorithmus an.
+		\begin{solutionordottedlines}[2cm]
+		Algorithmus: Fibonacci Sequenz ($n$):
+		\begin{enumerate}
+		 \item Falls $n > 2$: Gebe Fibonacci Sequenz $(n-1)$ + Fibonacci Sequenz $(n-2)$ zurück.
+		 \item Sonst: Gebe 1 zurück.
+		\end{enumerate}
+
+		\end{solutionordottedlines}
+
+		\part Diskutieren Sie die Vor- und Nachteile der verschiedenen Darstellungsformen.
+		\begin{solutionordottedlines}[2cm]
+		Ein Vorteil der graphischen Darstellung ist, dass sie eben graphisch ist. D.h. man kann mit dem Finger die Instruktionen lang fahren, und sieht, unter welchen Bedingungen man wo landet.\\
+		Der Nachteil ist, dass eine Darstellung als Struktogramm beispielsweise bei verschachtelten Wenn-Dann-Bedingungen schnell sehr \enquote{hässlich} und unübersichtlich werden kann. Andererseits sind verschachtelte Wenn-Dann-Bedingungen grundsätzlich sowieso zu vermeiden, weil dann der Algorithmus mehr als ein Problem gleichzeitig löst.
+
+		Der Vorteil der Text-Darstellung ist, dass sie sehr leicht lesbar ist. Ein Nachteil entsteht (wie bei der graphischen Darstellung) erst, wenn der Algorithmus sehr komplex wird und im Prinzip mehr als eine Aufgabe gleichzeitig erledigt. (Beispielsweise entscheiden, ob ein Wert grösser ist als ein anderer und anschliessend aufgrund dessen etwas unternimmt.) 
+		\end{solutionordottedlines}
+	\end{parts}
+
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\question Datenobjekte
+	\begin{parts}
+		\part Welche Datenobjekte haben Sie für Ihren Algorithmus eingesetzt?
+		\begin{solutionordottedlines}[2cm]
+		\begin{enumerate}
+			\item Elementarer Datentyp: Integer
+			\item Strukturierter Datentyp: Funktion
+		\end{enumerate}
+		\end{solutionordottedlines}
+		
+		\part Handelt es sich um elementare oder strukturierte?
+		\begin{solutionordottedlines}[2cm]
+		Sowohl als auch (siehe Antwort a)
+		\end{solutionordottedlines}
+
+		\part Konstanten oder Variablen?
+		\begin{solutionordottedlines}[2cm]
+			Beides sind Konstanten, die ihren Wert während eines Durchlaufs nicht verändern.
+		\end{solutionordottedlines}
+	
+		\part Diskutieren Sie ihre Gedanken in der Gruppe.
+		\begin{solutionordottedlines}[2cm]
+		Es stellt sich die Frage, ob eine Funktion ein Datentyp ist. Aus Sicht eines Computers in jedem Fall, da es sich auch bei Funktionen letztlich auch Daten (wenn auch komplexe und mit integrierter Logik) handelt.
+		\end{solutionordottedlines}
+      \end{parts}
+      
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\pagebreak
+	\question
+	Vom Algorithmus zum Programm
+	\begin{parts}
+		\part Implementieren Sie den Algorithmus. Jedoch nicht ihren eigenen, sondern den einer anderen Gruppe.
+		Nutzen Sie hierzu die erarbeite Darstellung des Algorithmus der anderen Gruppe.
+		\begin{solutionordottedlines}[2cm]
+		\begin{lstlisting}[language=Java]
+/**
+ * Calculate Fibonacci-Numbers
+ */
+public class FibonacciLoop {
+
+	/**
+	 * Calculates the Fibonacci-Number 
+	 * at the given position.
+	 * @param position 
+	 *		Position of the Fibonacci-Number
+	 * @return 
+	 * 		The value of the Fibonacci-Number 
+	 * 		at the specified position.
+	 */
+	public static int get(final int position) {
+		int current = 1;
+		int previous = 1;
+		for(int index = 3; index <= position; ++index) {
+			final int temp = current + previous;
+			previous = current;
+			current = temp;
+		}
+		return current;
+	}	
+}
+		\end{lstlisting}
+		\end{solutionordottedlines}
+		
+		\part Falls Ihr Programm nicht oder nicht korrekt läuft, dann diskutieren Sie mit der Gruppe von welcher Sie den Algorithmus erhalten haben,
+		was dier Ursache der Fehler sein könnte.
+		\begin{solutionordottedlines}[2cm]
+		Läuft korrekt für ganzzahlige Werte $>$ 0.\\
+		Problem: Werte $<1$ geben 1 statt einer Fehlermeldung zurück.
+		\end{solutionordottedlines}
+	\end{parts}
+	
+\end{questions}
+
